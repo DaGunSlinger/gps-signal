@@ -27,7 +27,7 @@ function calcDistances(){
         const c = 2 * Math.atan2(Math.sqrt(a), Math.sqrt(1-a));
         const distance = (radius * c).toFixed(3);
 
-        distancesTemps.push([cosa[0], distance, cosa[3], timeGps(distance).toFixed(3)])
+        distancesTemps.push([cosa[0], distance, cosa[3], timeGps(distance)])
     }
     distancesTemps.sort((a, b)=>{
         return a[1] - b[1]
@@ -49,7 +49,7 @@ function printCards(lista){
         let active;
         if(lista[i][2] === 1) active = "Activa" 
         else active = "Inactiva" 
-        stationParm.innerText = lista[i][0] + "," + lista[i][1] + " km ," + active + ": " + lista[i][3] + " Minutos";
+        stationParm.innerText = lista[i][0] + "," + lista[i][1] + " km ," + active + ": " + lista[i][3];
 
 
         const stationCard = document.createElement('div');
@@ -62,7 +62,7 @@ function printCards(lista){
         }
 
         if(i > 0 && lista[i][1] < 80){
-            const stationTitle = document.createElement('h1');
+            const stationTitle = document.createElement('h2');
             stationTitle.innerText = "Dentro del área de rastreo"
             stationCard.append(stationTitle)
         }
@@ -75,6 +75,13 @@ function printCards(lista){
 }
 
 function timeGps(distance){
-    temp = 65 + (3 * (distance - 10))
+    let temp = 65 + (3 * (distance - 10))
+    if(temp >= 60){
+        hrs = temp/60
+        min = Math.round((hrs - parseInt(hrs)) * 60 + 5)
+        temp = parseInt(hrs) + " horas " + min + " minutos"
+    } else {
+        temp = Math.round(temp + 1) + " minutos"
+    }
     return temp
 }
