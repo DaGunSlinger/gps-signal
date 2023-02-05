@@ -1,6 +1,8 @@
 let map = L.map("map").setView([4.2,-73],5);
 L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png?{foo}', {foo: 'bar', attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'}).addTo(map);
-let actualLoc = [4.63867863351,-74.0799486565];
+
+//let actualLoc = [4.63867863351,-74.0799486565];
+let actualLoc = [];
 //let localizacion = L.marker(actualLoc).addTo(map);
 //localizacion.bindPopup("Ubicación actual");
 
@@ -12,6 +14,8 @@ for (cosa of lista){
     L.marker([cosa[1],cosa[2]]).addTo(map).bindPopup(cosa[0]);
 }
 const cardsDiv = document.querySelector('.cards')
+
+const geoBtn = document.querySelector('.geolocation')
 
 const calcBtn = document.querySelector('.calc');
 let distancesTemps = []
@@ -78,10 +82,35 @@ function timeGps(distance){
     let temp = 65 + (3 * (distance - 10))
     if(temp >= 60){
         hrs = temp/60
-        min = Math.round((hrs - parseInt(hrs)) * 60 + 5)
-        temp = parseInt(hrs) + " horas " + min + " minutos"
+        min = Math.round((hrs - parseInt(hrs)) * 60 + 1)
+        temp = parseInt(hrs) + " horas y " + min + " minutos"
     } else {
         temp = Math.round(temp + 1) + " minutos"
     }
     return temp
+}
+
+geoBtn.addEventListener('click', getGeolocation);
+function getGeolocation(){
+    options = {
+        enableHighAccuracy:true,
+        timeout: 7000,
+        maximumAge: 0
+    }
+    const succes = (position) => {
+        actualLoc[0] = position.coords.latitude
+        actualLoc[1] = position.coords.longitude
+
+        let localizacion = L.marker(actualLoc).addTo(map);
+        localizacion.bindPopup("Ubicación actual");
+
+        console.log(position.coords.latitude);
+        console.log(position.coords.longitude);
+
+        calcDistances()
+    }
+    const error = (err) => {
+        console.warn(`Error ${err.code}: ${err.message}`);
+    }
+    navigator.geolocation.getCurrentPosition(succes, error, options)
 }
