@@ -1,4 +1,4 @@
-let map = L.map("map").setView([4.2,-73],5);
+let map = L.map("map").setView([4.3,-73],5);
 L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png?{foo}', {foo: 'bar', attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'}).addTo(map);
 
 //let actualLoc = [4.63867863351,-74.0799486565];
@@ -20,11 +20,11 @@ let cardsDivs;
 
 const geoBtn = document.querySelector('.geolocation')
 
-const selectBtn = document.querySelector('.selectPoint')
+/*const selectBtn = document.querySelector('.selectPoint')
 selectBtn.addEventListener('click', clickOnMap)
 
 const calcBtn = document.querySelector('.calc');
-calcBtn.addEventListener('click', changeCoords);
+calcBtn.addEventListener('click', changeCoords);*/
 
 let distancesTemps = []
 

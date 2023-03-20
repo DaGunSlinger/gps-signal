@@ -5,7 +5,13 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="./css/styles.css">
+
+    <!-- fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@200;400;700&family=Satisfy&display=swap" rel="stylesheet"> <!-- 200 400 700 -->
     
+    <!-- styles -->
     <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.3/dist/leaflet.css" integrity="sha256-kLaT2GOSpHechhsozzB+flnD+zUyjE2LlfWPgU04xyI=" crossorigin="" />
     <script src="https://unpkg.com/leaflet@1.9.3/dist/leaflet.js" integrity="sha256-WBkoXOwTeyKclOHuWtc+i2uENFpDZ9YPdf5Hf+D7ewM=" crossorigin=""></script>
 
@@ -13,12 +19,24 @@
 </head>
 <body>
     <section>
-        <div class="map" id="map"></div>
-        <h1>Mapa en leaflet</h1>
-        <span>El primer mapa</span>
-        <button class="geolocation">geolocation</button>
-        <button class="selectPoint">Seleccionar</button>
-        <button class="calc">Calcular</button>
+        <div class="map" id="map">
+            <div class="position">
+                <h1>Tiempo de rastreo GNSS</h1>
+                <p>Calcular tiempo de rastreo mediante:</p>
+                <button class="position--button">
+                    <span class="position--button__location"></span>
+                    <p>Utilizar mi ubicación actual</p>
+                    <span class="position--button__arrow"></span>
+                </button>
+                <button class="position--button">
+                    <span class="position--button__coords"></span>
+                    <p>Introducir coordenadas</p>
+                    <span class="position--button__arrow"></span>
+                </button>
+            </div>
+        </div>
+        <!-- <button class="selectPoint">Seleccionar</button>
+        <button class="calc">Calcular</button> -->
     </section>
     <section class="cards">
 

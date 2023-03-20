@@ -1,3 +1,5 @@
+/*Colores*/
+/*Fuentes*/
 * {
   margin: 0;
   padding: 0;
@@ -11,12 +13,109 @@ html {
 
 .map {
   width: 100%;
-  height: 50rem;
+  height: 68rem;
+  position: relative;
 }
-.cards{
+
+.position {
   width: 100%;
-  height: auto;
+  height: 30rem;
+  padding-top: 2rem;
+  position: absolute;
+  z-index: 500;
+  bottom: -2rem;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  font-family: "Nunito", sans-serif;
+  background-color: #f1f3f4;
+  border: 0px solid gray;
+  -webkit-box-shadow: 0rem 0.5rem 0.8rem black;
+          box-shadow: 0rem 0.5rem 0.8rem black;
+  border-radius: 1.5rem;
+  font-size: 1.6rem;
+  cursor: auto;
+  color: #1c1934;
 }
+.position h1 {
+  font-size: 2rem;
+  font-weight: 700;
+}
+.position p {
+  font-size: 1.6rem;
+}
+.position--button {
+  width: 90%;
+  height: 6rem;
+  padding-left: 1rem;
+  margin-bottom: 2rem;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  position: relative;
+  border: none;
+  border-radius: 2rem;
+  background-color: #e3e2e9;
+  cursor: pointer;
+  font-size: 1.6rem;
+  font-weight: 400;
+}
+.position--button p {
+  font-size: 1.6rem;
+  margin-left: 1.5rem;
+}
+.position--button__location {
+  width: 4rem;
+  height: 4rem;
+  background-color: #7f59ed;
+  border: none;
+  padding: 1rem;
+  border-radius: 2rem;
+  background-image: url("../assets/gps.png");
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: 2.4rem 2.4rem;
+}
+.position--button__coords {
+  width: 4rem;
+  height: 4rem;
+  background-color: #7f59ed;
+  border: none;
+  padding: 1rem;
+  border-radius: 2rem;
+  background-image: url("../assets/coords.png");
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: 2.4rem 2.4rem;
+}
+.position--button__arrow {
+  width: 4rem;
+  height: 4rem;
+  position: absolute;
+  right: 0;
+  padding: 1rem;
+  border-radius: 2rem;
+  border: none;
+  background-image: url("../assets/flechita.svg");
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: 2.4rem 2.4rem;
+}
+.position--button:hover {
+  color: #f1f3f4;
+  background-color: #1c1934;
+}
+
 .stationcard {
   width: 80%;
   height: 5rem;
