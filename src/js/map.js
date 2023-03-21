@@ -1,4 +1,4 @@
-let map = L.map("map").setView([4.3,-73],5);
+let map = L.map("map").setView([1,-74],5);
 L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png?{foo}', {foo: 'bar', attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'}).addTo(map);
 
 //let actualLoc = [4.63867863351,-74.0799486565];
@@ -69,7 +69,10 @@ function printCards(lista){
         let active;
         if(lista[i][2] === 1) active = "Activa" 
         else active = "Inactiva" 
-        stationParm.innerText = lista[i][0] + "," + lista[i][1] + " km ," + active + ": " + lista[i][3];
+        stationParm.innerText = lista[i][1] + " km ," + active;
+
+        const stationName = document.createElement('p');
+        stationName.innerText = lista[i][0] + ": " + lista[i][3];
 
 
         const stationCard = document.createElement('div');
@@ -88,6 +91,7 @@ function printCards(lista){
         }
         
         stationCard.append(stationParm)
+        stationCard.append(stationName)
         cardsDiv.appendChild(stationCard)
 
         i++;
@@ -125,11 +129,19 @@ function getGeolocation(){
         console.log(position.coords.longitude);
 
         calcDistances()
+        map.flyTo([actualLoc[0], actualLoc[1]], 9)
+        toggleToCards()
     }
     const error = (err) => {
         console.warn(`Error ${err.code}: ${err.message}`);
     }
     navigator.geolocation.getCurrentPosition(succes, error, options)
+}
+const position = document.querySelector('.position')
+const cards = document.querySelector('.cards')
+function toggleToCards(){
+    position.classList.toggle('inactive')
+    cards.classList.toggle('inactive')
 }
 
 function clickOnMap(){

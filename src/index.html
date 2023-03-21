@@ -21,9 +21,12 @@
     <section>
         <div class="map" id="map">
             <div class="position">
-                <h1>Tiempo de rastreo GNSS</h1>
-                <p>Calcular tiempo de rastreo mediante:</p>
-                <button class="position--button">
+                <div class="position--info">
+                    <h1>Tiempo de rastreo GNSS</h1>
+                    <p>Calcula cuanto tiempo tardará el posicionamiento GPS</p>
+                    <span class="position--info__icon"></span>
+                </div>
+                <button class="position--button geolocation">
                     <span class="position--button__location"></span>
                     <p>Utilizar mi ubicación actual</p>
                     <span class="position--button__arrow"></span>
@@ -34,12 +37,13 @@
                     <span class="position--button__arrow"></span>
                 </button>
             </div>
+
+            <div class="cards inactive">
+
+            </div>
         </div>
         <!-- <button class="selectPoint">Seleccionar</button>
         <button class="calc">Calcular</button> -->
-    </section>
-    <section class="cards">
-
     </section>
     <script src="./js/map.js"></script>
 </body>
