@@ -12,6 +12,22 @@ const banco1 = [["AECH",3.72494334743,-75.4659905729,1] ,["AEFO",1.58893489508,-
 const banco2 = [["AQTA",7.02503227256,-71.4069070726,1],["RSLA",5.04565368323,-70.7236414801,1],["AGAB",10.5849034668,-74.1893499941,1],["SUAN",10.3403774138,-74.8799420642,1],["SDTA",8.08345547769,-72.8022858448,1],["TIBU",8.631430658,-72.736101144,0],["TUMC",1.550874622,-78.697869587,1],["COLH",3.530816953,-74.718452628,1],["ZBNO",9.73532055579,-74.8350636113,1],["CMNI",9.201947,-73.531596,1],["PINI",8.914462,-74.458681,1],["NSRI",8.536864,-74.034979,1],["ARGL",2.288465,-77.240415,1],["PTIA",1.972752,-77.119639,1],["SARO",1.705623,-76.573034,1],["MGUI",1.763059,-78.180865,1],["CMBI",1.652002,-77.579536,1],["GVRE",2.571673619,-72.641220265,0]]
 const lista = [...banco1, ...banco2]
 
+
+//icons
+let iconoBase = L.Icon.extend({
+    options: {
+        iconSize:     [38, 95],
+        iconAnchor:   [22, 94],
+        popupAnchor:  [-3, -76]
+    }
+});
+
+const CORS = new L.Icon({
+    iconUrl: '../assets/locationmap.png',
+    iconSize: [50, 50],
+    iconAnchor: [25, 50]
+});
+
 for (cosa of lista){
     L.marker([cosa[1],cosa[2]]).addTo(map).bindPopup(cosa[0]);
 }
@@ -56,11 +72,7 @@ function toRadians(value){
 function printCards(lista){
     console.log(cardsDivs);
     if(cardsDivs != null){
-        for (let j = 0; j < 80; j++) {
-            cardsDivs.remove()
-            cardsDivs = document.querySelector('.stationcard')
-            console.log(j);
-        }
+        clearSolutions()
     }
     let i = 0;
     for (cosa of lista){
@@ -129,7 +141,7 @@ function getGeolocation(){
         console.log(position.coords.longitude);
 
         calcDistances()
-        map.flyTo([actualLoc[0], actualLoc[1]], 9)
+        map.flyTo([actualLoc[0] - 0.4, actualLoc[1]], 9)
         toggleToCards()
     }
     const error = (err) => {
@@ -161,7 +173,26 @@ function changeCoords(){
     actualLoc[1] = localizacion._latlng.lng
     calcDistances()
 }
-    
+
+function clearSolutions(){
+    for (let j = 0; j < 80; j++) {
+        cardsDivs.remove()
+        cardsDivs = document.querySelector('.stationcard')
+        console.log(j);
+    }
+}
+
+function returnToStart(){
+    clearSolutions()
+    map.removeLayer(circle80)
+    map.flyTo([actualLoc[0], actualLoc[1]], 5)
+    console.log(`cardis es: ${cardsDivs}`);
+    toggleToCards()
+}
+
+const returnBtn = document.querySelector('.cards--return')
+returnBtn.addEventListener('click', returnToStart);
+
 
 
 
