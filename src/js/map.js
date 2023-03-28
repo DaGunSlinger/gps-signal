@@ -71,9 +71,6 @@ function toRadians(value){
 
 function printCards(lista){
     console.log(cardsDivs);
-    if(cardsDivs != null){
-        clearSolutions()
-    }
     let i = 0;
     for (cosa of lista){
         const stationParm = document.createElement('p');
@@ -175,9 +172,10 @@ function changeCoords(){
 }
 
 function clearSolutions(){
-    for (let j = 0; j < 80; j++) {
-        cardsDivs.remove()
+    console.log('hay exactamente: ' + document.getElementsByClassName('stationcard').length);
+    for (let j = 0; j <= document.getElementsByClassName('stationcard').length; j++) {
         cardsDivs = document.querySelector('.stationcard')
+        cardsDivs.remove()
         console.log(j);
     }
 }
