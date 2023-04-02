@@ -7,6 +7,7 @@ L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png?{foo}', {foo: 'bar',
 let actualLoc = [4.6467863351,-74.0799486565];
 let localizacion;
 let circle80;
+let stationline;
 
 //let localizacion = L.marker(actualLoc).addTo(map);
 
@@ -54,13 +55,12 @@ function calcDistances(){
         const c = 2 * Math.atan2(Math.sqrt(a), Math.sqrt(1-a));
         const distance = (radius * c).toFixed(3);
     
-        distancesTemps.push([cosa[0], distance, cosa[3], timeGps(distance)])
+        distancesTemps.push([cosa[0], distance, cosa[3], timeGps(distance), [[cosa[1], cosa[2]], actualLoc]])
     })
 
     distancesTemps.sort((a, b)=>{
         return a[1] - b[1]
     })
-
     printCards(distancesTemps)
 }
 
@@ -120,6 +120,8 @@ function printCards(ARR){
 
         const arrow = document.createElement('span');
         arrow.classList.add('position--button__arrow')
+        const coordsAct = ARR[i][4]
+        arrow.onclick = () => drawLine(coordsAct, actualLoc)
         
         containerLeft.append(stationName)
         containerLeft.append(stationActive)
@@ -188,8 +190,20 @@ function clearCards(){
 function returnToStart(){
     clearCards()
     map.removeLayer(circle80)
+    map.removeLayer(stationline)
     map.flyTo([1, -74], 5)
     toggleToCards()
+}
+
+function drawLine(coords){
+    if(stationline != undefined){
+        map.removeLayer(stationline)
+    }
+    stationline = L.polyline([[coords[0][0],coords[0][1]],[coords[1][0],coords[1][1]]], {color: 'blue'}).addTo(map);
+    console.log([[coords[0][0],coords[0][1]],[coords[1][0],coords[1][1]]],);
+    const latProm = (coords[0][0] + coords[1][0])/2
+    const longProm = (coords[0][1] + coords[1][1])/2
+    map.flyTo([latProm, longProm], 10)
 }
 
 const returnBtn = document.querySelector('.cards--return')
