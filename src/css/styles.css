@@ -13,15 +13,19 @@ html {
 
 .map {
   width: 100%;
-  height: 100vh;
-  position: relative;
+  height: 70%;
+  position: fixed;
+}
+
+.leaflet-control-attribution {
+  display: none;
 }
 
 .position {
   width: 100%;
-  height: 32rem;
+  height: 45%;
   padding-top: 2rem;
-  position: absolute;
+  position: fixed;
   z-index: 500;
   bottom: -2rem;
   display: -webkit-box;
@@ -142,8 +146,8 @@ html {
 
 .cards {
   width: 100%;
-  height: 30rem;
-  padding-top: 2rem;
+  height: 45%;
+  padding-top: 6rem;
   position: absolute;
   z-index: 500;
   bottom: -2rem;
@@ -158,6 +162,7 @@ html {
   -webkit-box-pack: start;
       -ms-flex-pack: start;
           justify-content: flex-start;
+  overflow: auto;
   background-color: #ececec;
   border: 0px solid gray;
   -webkit-box-shadow: 0rem 0.5rem 0.8rem black;
@@ -181,14 +186,15 @@ html {
 }
 .cards--return {
   position: absolute;
-  top: -4.4rem;
-  left: 0.5rem;
+  top: 1rem;
+  left: 1.8rem;
   width: 5rem;
   height: 5rem;
   background-color: #ececec;
   border-radius: 2rem;
   -webkit-box-shadow: 0 1px 15px rgba(0, 0, 0, 0.16), 0 1px 15px rgba(0, 0, 0, 0.23);
           box-shadow: 0 1px 15px rgba(0, 0, 0, 0.16), 0 1px 15px rgba(0, 0, 0, 0.23);
+  z-index: 500;
   -webkit-transform: rotate(180deg);
           transform: rotate(180deg);
   width: 4rem;
