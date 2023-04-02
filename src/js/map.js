@@ -190,7 +190,9 @@ function clearCards(){
 function returnToStart(){
     clearCards()
     map.removeLayer(circle80)
-    map.removeLayer(stationline)
+    if(stationline != undefined){
+        map.removeLayer(stationline)
+    }
     map.flyTo([1, -74], 5)
     toggleToCards()
 }
@@ -199,8 +201,8 @@ function drawLine(coords){
     if(stationline != undefined){
         map.removeLayer(stationline)
     }
-    stationline = L.polyline([[coords[0][0],coords[0][1]],[coords[1][0],coords[1][1]]], {color: 'blue'}).addTo(map);
-    console.log([[coords[0][0],coords[0][1]],[coords[1][0],coords[1][1]]],);
+    stationline = L.polyline([[coords[0][0],coords[0][1]],[coords[1][0],coords[1][1]]], {color: '#7f59ed'}).addTo(map);
+
     const latProm = (coords[0][0] + coords[1][0])/2
     const longProm = (coords[0][1] + coords[1][1])/2
     map.flyTo([latProm, longProm], 10)

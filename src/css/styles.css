@@ -203,7 +203,7 @@ html {
 .stationcard {
   width: 90%;
   height: 8rem;
-  margin: 0 0 1rem 1.6rem;
+  margin: 0.4rem auto;
   padding: 1rem;
   display: -ms-grid;
   display: grid;

@@ -185,7 +185,7 @@
 .stationcard{
     width: 90%;
     height: 8rem;
-    margin: 0 0 1rem 1.6rem;
+    margin: 0.4rem auto;
     padding: 1rem;
     @include display-grid;
     @include grid-template-columns(0.7fr 1.3fr);
