@@ -71,39 +71,66 @@ function toRadians(value){
 
 function printCards(ARR){
     let i = 0;
-    ARR.forEach(cosa => {
-        const stationParm = document.createElement('p');
+    let flag = 0;
+    for(let el in ARR){
+        const stationDist = document.createElement('p');
     
-        let active;
-        if(ARR[i][2] === 1) active = "Activa" 
-        else active = "Inactiva" 
-        stationParm.innerText = ARR[i][1] + " km ," + active;
+        const stationActive = document.createElement('p');
+        stationActive.classList.add('stationcard--act')
+        if(ARR[i][2] === 1) {
+            stationActive.innerText = "Activa" 
+            stationActive.classList.add('act')
+        } else {        
+            stationActive.innerText = "Inactiva" 
+            stationActive.classList.add('inac')
+        }
+
+        stationDist.innerText = ARR[i][1] + " km de tu ubicación"
+        stationDist.classList.add('stationcard--dist')
     
         const stationName = document.createElement('p');
-        stationName.innerText = ARR[i][0] + ": " + ARR[i][3];
+        stationName.innerText = ARR[i][0];
+        stationName.classList.add('stationcard--name')
+
+        const stationTime = document.createElement('p');
+        stationTime.innerText = ARR[i][3];
+        stationTime.classList.add('stationcard--time')
     
     
         const stationCard = document.createElement('div');
         stationCard.classList.add('stationcard')
+
+        const containerLeft = document.createElement('div');
+        containerLeft.classList.add('stationcard--left')
     
         if(i===0 && ARR[i][1] < 80 && ARR[i][2] === 1){
             const stationTitle = document.createElement('h1');
-            stationTitle.innerText = "La mejor opción"
-            stationCard.append(stationTitle)
-        }
-    
-        if(i > 0 && ARR[i][1] < 80){
-            const stationTitle = document.createElement('h2');
+            stationTitle.innerText = "La mejor opción";
+            cardsDiv.appendChild(stationTitle);
+        } else if(i === 1 && ARR[i][1] < 80){
+            const stationTitle = document.createElement('h1');
             stationTitle.innerText = "Dentro del área de rastreo"
-            stationCard.append(stationTitle)
+            cardsDiv.appendChild(stationTitle)
+        } else if(ARR[i][1] > 80 && flag === 0){
+            const stationTitle = document.createElement('h1');
+            stationTitle.innerText = "Otras opciones"
+            cardsDiv.appendChild(stationTitle)
+            flag++
         }
+
+        const arrow = document.createElement('span');
+        arrow.classList.add('position--button__arrow')
         
-        stationCard.append(stationParm)
-        stationCard.append(stationName)
+        containerLeft.append(stationName)
+        containerLeft.append(stationActive)
+        stationCard.append(containerLeft)
+        stationCard.append(stationDist)
+        stationCard.append(stationTime)
+        stationCard.append(arrow)
         cardsDiv.appendChild(stationCard)
     
         i++;
-    })
+    }
 }
 
 function timeGps(distance){
@@ -150,10 +177,16 @@ function toggleToCards(){
     position.classList.toggle('inactive')
     cards.classList.toggle('inactive')
 }
-
-function returnToStart(){
+function clearCards(){
     const arrCards = cardsDiv.querySelectorAll('div:not(.cards--return)');
     arrCards.forEach(div => div.remove())
+
+    const arrH1 = cardsDiv.querySelectorAll('h1');
+    arrH1.forEach(el => el.remove())
+}
+
+function returnToStart(){
+    clearCards()
     map.removeLayer(circle80)
     map.flyTo([1, -74], 5)
     toggleToCards()
