@@ -16,7 +16,8 @@
     
     <!-- Scripts -->
     <script src="https://unpkg.com/leaflet@1.9.3/dist/leaflet.js" integrity="sha256-WBkoXOwTeyKclOHuWtc+i2uENFpDZ9YPdf5Hf+D7ewM=" crossorigin=""></script>
-    <script defer src="./src/js/map.js"></script>
+    <!-- <script defer type="module" src="./src/js/variables.js"></script> -->
+    <script defer type="module" src="./src/js/map.js"></script>
 
     <title>GPS SIGNAL</title>
 </head>
@@ -41,9 +42,8 @@
                 </button>
             </div>
 
-            <div class="cards inactive">
+            <div class="cards inactive" id="cards">
                 <div class="cards--return"></div>
-
             </div>
         </div>
         <!-- <button class="selectPoint">Seleccionar</button>
