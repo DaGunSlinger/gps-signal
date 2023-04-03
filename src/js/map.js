@@ -1,6 +1,8 @@
 import lista from './variables.js';
 
-let map = L.map("map").setView([5.5,-74],5);
+const mapCenter = [5.5,-74];
+
+let map = L.map("map").setView(mapCenter,5);
 L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png?{foo}', {foo: 'bar', attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'}).addTo(map);
 
 let actualLoc = [4.6467863351,-74.0799486565];
@@ -150,14 +152,14 @@ function getGeolocation(){
         actualLoc[0] = position.coords.latitude
         actualLoc[1] = position.coords.longitude
 
-        let localizacion = L.marker(actualLoc, {icon: redIcon}).addTo(map);
+        localizacion = L.marker(actualLoc, {icon: redIcon}).addTo(map);
         localizacion.bindPopup("Ubicación actual");
 
         // console.log(position.coords.latitude);
         // console.log(position.coords.longitude);
 
         calcDistances()
-        map.flyTo([actualLoc[0] - 0.4, actualLoc[1]], 9)
+        map.flyTo([actualLoc[0], actualLoc[1]], 9)
         toggleToCards()
     }
     const error = (err) => {
@@ -186,7 +188,10 @@ function returnToStart(){
     if(stationline != undefined){
         map.removeLayer(stationline)
     }
-    map.flyTo([1, -74], 5)
+    if(localizacion != undefined){
+        map.removeLayer(localizacion)
+    }
+    map.flyTo(mapCenter, 5)
     toggleToCards()
 }
 
