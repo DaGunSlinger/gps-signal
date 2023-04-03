@@ -136,7 +136,6 @@
 .cards{
     width: 100%;
     height: 45%;
-    padding-top: 6rem;
     position: absolute;
     z-index: 500;
     bottom: -2rem;
@@ -167,25 +166,32 @@
         font-weight: 700;
     }
     
-    &--return{
-        position: absolute;
-        top: 1rem;
-        left: 1.8rem;
-        width: 5rem;
-        height: 5rem;
-        background-color: $color-light;
-        border-radius: 2rem;
-        box-shadow: 0 1px 15px rgba(0,0,0,0.16), 0 1px 15px rgba(0,0,0,0.23);
-        z-index: 500;
-
-        transform: rotate(180deg);
-        width: 4rem;
-        height: 4rem;
-        cursor: pointer;
-        background-image: url("../assets/flechita.svg");
-        background-position: center;
-        background-repeat: no-repeat;
-        background-size: 2.4rem 2.4rem;
+    &--navigation{
+        display: flex;
+        align-items: center;
+        margin: 1rem 0 1rem 1.6rem;
+        &__return{
+            width: 5rem;
+            height: 5rem;
+            background-color: $color-light;
+            border-radius: 2rem;
+            box-shadow: 0 1px 15px rgba(0,0,0,0.16), 0 1px 15px rgba(0,0,0,0.23);
+            z-index: 500;
+    
+            transform: rotate(180deg);
+            width: 4rem;
+            height: 4rem;
+            cursor: pointer;
+            background-image: url("../assets/flechita.svg");
+            background-position: center;
+            background-repeat: no-repeat;
+            background-size: 2.4rem 2.4rem;
+        }
+        & h1{
+            color: $color-primary;
+            font-weight: bolder;
+            font-size: 2rem;
+        }
     }
 }
 .stationcard{

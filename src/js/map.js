@@ -1,31 +1,23 @@
 import lista from './variables.js';
 
-let map = L.map("map").setView([1,-74],5);
+let map = L.map("map").setView([5.5,-74],5);
 L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png?{foo}', {foo: 'bar', attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'}).addTo(map);
 
-//let actualLoc = [4.63867863351,-74.0799486565];
 let actualLoc = [4.6467863351,-74.0799486565];
 let localizacion;
 let circle80;
 let stationline;
 
-//let localizacion = L.marker(actualLoc).addTo(map);
-
-/*//icons 
-
-let iconoBase = L.Icon.extend({
-    options: {
-        iconSize:     [38, 95],
-        iconAnchor:   [22, 94],
-        popupAnchor:  [-3, -76]
-    }
+//icons 
+const redIcon = L.icon({
+    iconUrl: 'https://cdn.rawgit.com/pointhi/leaflet-color-markers/master/img/marker-icon-2x-red.png',
+    shadowUrl: 'https://cdnjs.cloudflare.com/ajax/libs/leaflet/0.7.7/images/marker-shadow.png',
+    iconSize: [25, 41],
+    iconAnchor: [12, 41],
+    popupAnchor: [1, -34],
+    shadowSize: [41, 41]
 });
 
-const CORS = new L.Icon({
-    iconUrl: '../assets/locationmap.png',
-    iconSize: [50, 50],
-    iconAnchor: [25, 50]
-})*/
 
 //Dibujo cada CORS en el mapa
 lista.forEach(cosa => {
@@ -158,7 +150,7 @@ function getGeolocation(){
         actualLoc[0] = position.coords.latitude
         actualLoc[1] = position.coords.longitude
 
-        let localizacion = L.marker(actualLoc).addTo(map);
+        let localizacion = L.marker(actualLoc, {icon: redIcon}).addTo(map);
         localizacion.bindPopup("Ubicación actual");
 
         // console.log(position.coords.latitude);
@@ -173,6 +165,7 @@ function getGeolocation(){
     }
     navigator.geolocation.getCurrentPosition(succes, error, options)
 }
+
 const position = document.querySelector('.position')
 const cards = document.querySelector('.cards')
 function toggleToCards(){
@@ -180,10 +173,10 @@ function toggleToCards(){
     cards.classList.toggle('inactive')
 }
 function clearCards(){
-    const arrCards = cardsDiv.querySelectorAll('div:not(.cards--return)');
+    const arrCards = cardsDiv.querySelectorAll(':not(.keep)');
     arrCards.forEach(div => div.remove())
 
-    const arrH1 = cardsDiv.querySelectorAll('h1');
+    const arrH1 = cardsDiv.querySelectorAll('h1:not(.keep)');
     arrH1.forEach(el => el.remove())
 }
 
@@ -208,7 +201,7 @@ function drawLine(coords){
     map.flyTo([latProm, longProm], 10)
 }
 
-const returnBtn = document.querySelector('.cards--return')
+const returnBtn = document.querySelector('.cards--navigation__return')
 returnBtn.addEventListener('click', returnToStart);
 
 function clickOnMap(){
