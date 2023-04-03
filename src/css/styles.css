@@ -190,15 +190,13 @@ html {
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
-  margin: 1rem 0 1rem 1.6rem;
+  margin: 1.5rem 0 1rem 0.8rem;
 }
 .cards--navigation__return {
   width: 5rem;
   height: 5rem;
   background-color: #ececec;
   border-radius: 2rem;
-  -webkit-box-shadow: 0 1px 15px rgba(0, 0, 0, 0.16), 0 1px 15px rgba(0, 0, 0, 0.23);
-          box-shadow: 0 1px 15px rgba(0, 0, 0, 0.16), 0 1px 15px rgba(0, 0, 0, 0.23);
   z-index: 500;
   -webkit-transform: rotate(180deg);
           transform: rotate(180deg);
@@ -214,6 +212,7 @@ html {
   color: #7f59ed;
   font-weight: bolder;
   font-size: 2rem;
+  margin-left: 0.5rem;
 }
 
 .stationcard {
