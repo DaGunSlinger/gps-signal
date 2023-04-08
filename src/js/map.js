@@ -236,13 +236,16 @@ const returnBtn = document.querySelector('.cards--navigation__return')
 returnBtn.addEventListener('click', returnToStart);
 
 const coordsBtn = document.querySelector('.insertCoords')
-coordsBtn.addEventListener('click', goToCoords);
-
-function goToCoords(){
-    toggleToMenu()
-}
+coordsBtn.addEventListener('click', toggleToMenu);
 
 function toggleToMenu(){
+    if(degreesBtn.classList.contains('inactiveBtn')){
+        toggleCalcMode()
+    }
+    if(document.querySelector('.degrees--container__selector').value === '-1'){
+        document.querySelector('.degrees--container__selector').value = '1'
+    }
+
     clearInputs()
     position.classList.toggle('inactive')
     tabDiv.classList.toggle('inactive')
@@ -288,6 +291,10 @@ calcInDecimalsBtn.addEventListener('click', calcSinceDecimals);
 function calcSinceDecimals(){
     actualLoc[0] = parseFloat(inputDecimalLat.value);
     actualLoc[1] = parseFloat(inputDecimalLong.value);
+    if(isNaN(actualLoc[0]) || isNaN(actualLoc[1]) ){
+        showWarning()
+        return;
+    }
     if(actualLoc[1] > 0){
         actualLoc[1] *= -1;
     }
@@ -299,8 +306,16 @@ function calcSinceDecimals(){
 const calcInDegreessBtn = document.querySelector('.calcInDegrees');
 calcInDegreessBtn.addEventListener('click', calcSinceDegrees);
 function calcSinceDegrees(){
-    actualLoc[0] = parseInt(degreesLatGrades.value) + parseInt(degreesLatMinutes.value)/60 + parseFloat(degreesLatSeconds.value)/360;
+    const selectorNS = parseFloat(document.querySelector('.degrees--container__selector').value)
+    actualLoc[0] = (parseInt(degreesLatGrades.value) + parseInt(degreesLatMinutes.value)/60 + parseFloat(degreesLatSeconds.value)/360) * selectorNS;
     actualLoc[1] = parseInt(degreesLongGrades.value) + parseInt(degreesLongMinutes.value)/60 + parseFloat(degreesLongSeconds.value)/360;
+
+    
+    if(isNaN(actualLoc[0]) || isNaN(actualLoc[1]) ){
+        showWarning()
+        return;
+    }
+    
     if(actualLoc[1] > 0){
         actualLoc[1] *= -1;
     }
@@ -350,6 +365,13 @@ function clickOnMap(){
     localizacion.bindPopup("Ubicación actual");
     map.addLayer(localizacion)
 } 
+
+const warningDiv = document.querySelector('.warning--activator')
+function showWarning(){
+    warningDiv.classList.toggle('inactive')
+}
+const closeWarning = document.querySelector('.closeWarning')
+closeWarning.addEventListener('click',() => showWarning())
 
 function changeCoords(){
     if(circle80 != undefined){

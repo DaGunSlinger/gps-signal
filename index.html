@@ -62,24 +62,24 @@
                 <div class="tab--section__degrees">
                     <h1>Latitud</h1>
                     <div class="degrees--container">
-                        <input class="degrees--container__input degreesLatGrades" type="text">
+                        <input class="degrees--container__input degreesLatGrades" value="4" type="text">
                         <h1>°</h1>
-                        <input class="degrees--container__input degreesLatMinutes" type="text">
+                        <input class="degrees--container__input degreesLatMinutes" value="0" type="text">
                         <h1>'</h1>
-                        <input class="degrees--container__input long degreesLatSeconds" type="text">
+                        <input class="degrees--container__input long degreesLatSeconds" value="0" type="text">
                         <h1>''</h1>
                         <select class="degrees--container__selector">
-                            <option value="north">N</option>
-                            <option value="south">S</option>
+                            <option value="1">N</option>
+                            <option value="-1">S</option>
                         </select>
                     </div>
                     <h1>Longitud</h1>
                     <div class="degrees--container">
-                        <input class="degrees--container__input degreesLongGrades" type="text">
+                        <input class="degrees--container__input degreesLongGrades" value="74" type="text">
                         <h1>°</h1>
-                        <input class="degrees--container__input degreesLongMinutes" type="text">
+                        <input class="degrees--container__input degreesLongMinutes" value="0" type="text">
                         <h1>'</h1>
-                        <input class="degrees--container__input long degreesLongSeconds" type="text">
+                        <input class="degrees--container__input long degreesLongSeconds" value="0" type="text">
                         <h1>''</h1>
                         <h1 class="WestLong">W</h1>
                     </div>
@@ -106,6 +106,18 @@
                 </div>
             </section>
         </div>
+        <section class="warning--activator inactive">
+            <div class="warning">
+                <div class="warning--popUp">
+                    <span class="warning--popUp__icon"></span>
+                    <h1 class="warning--popUp__title">Verifica tus datos</h1>
+                    <p class="warning--popUp__description">Los datos ingresados son incorrectos o hay datos faltantes</p>
+                    <button class="position--button closeWarning">
+                        <p>Verficar</p>
+                    </button>
+                </div>
+            </div>
+        </section>
 
         <!-- <button class="selectPoint">Seleccionar</button>
         <button class="calc">Calcular</button> -->
