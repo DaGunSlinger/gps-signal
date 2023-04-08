@@ -109,7 +109,8 @@ function printCards(ARR){
         const arrow = document.createElement('span');
         arrow.classList.add('position--button__arrow')
         const coordsAct = ARR[i][4]
-        arrow.onclick = () => drawLine(coordsAct, actualLoc)
+        //console.log('params: ' , coordsAct, actualLoc);
+        arrow.onclick = () => drawLine(coordsAct)
         
         containerLeft.append(stationName)
         containerLeft.append(stationActive)
@@ -137,27 +138,19 @@ function timeGps(distance){
 
 geoBtn.addEventListener('click', getGeolocation);
 function getGeolocation(){
+    const succes = (position) => {
+        actualLoc[0] = position.coords.latitude
+        actualLoc[1] = position.coords.longitude
+        
+        putMarkNcalc()
+    }
+    const error = (err) => {
+        console.warn(`Error ${err.code}: ${err.message}`);
+    }
     let options = {
         enableHighAccuracy: true,
         timeout: 7000,
         maximumAge: 0
-    }
-    const succes = (position) => {
-        actualLoc[0] = position.coords.latitude
-        actualLoc[1] = position.coords.longitude
-
-        localizacion = L.marker(actualLoc, {icon: redIcon}).addTo(map);
-        localizacion.bindPopup("Ubicación actual");
-
-        // console.log(position.coords.latitude);
-        // console.log(position.coords.longitude);
-
-        calcDistances()
-        map.flyTo([actualLoc[0], actualLoc[1]], 9)
-        toggleToCards()
-    }
-    const error = (err) => {
-        console.warn(`Error ${err.code}: ${err.message}`);
     }
     navigator.geolocation.getCurrentPosition(succes, error, options)
 }
@@ -198,7 +191,45 @@ function drawLine(coords){
 
     const latProm = (coords[0][0] + coords[1][0])/2
     const longProm = (coords[0][1] + coords[1][1])/2
-    map.flyTo([latProm, longProm], 10)
+
+    const latDiff = Math.abs(coords[0][0] - coords[1][0]);
+    const longDiff = Math.abs(coords[0][1] - coords[1][1]);
+
+    let zoomMap;
+    if(latDiff > longDiff){
+        if(latDiff < 0.07){
+            zoomMap = 12
+        } else if (latDiff < 0.2) {
+            zoomMap = 11
+        } else if (latDiff < 0.9){
+            zoomMap = 9
+        } else if(latDiff < 1.8){
+            zoomMap = 8
+        } else if(latDiff < 3.8){
+            zoomMap = 7
+        } else if(latDiff < 7){
+            zoomMap = 6
+        } else {
+            zoomMap = 5
+        }
+    } else {
+        if(longDiff < 0.07){
+            zoomMap = 12
+        } else if (longDiff < 0.2) {
+            zoomMap = 11
+        } else if (longDiff < 0.9){
+            zoomMap = 9
+        } else if(longDiff < 1.8){
+            zoomMap = 8
+        } else if(longDiff < 3.8){
+            zoomMap = 7
+        } else if(longDiff < 7){
+            zoomMap = 6
+        } else {
+            zoomMap = 5
+        }
+    }
+    map.flyTo([latProm, longProm], zoomMap)
 }
 
 const returnBtn = document.querySelector('.cards--navigation__return')
@@ -212,6 +243,7 @@ function goToCoords(){
 }
 
 function toggleToMenu(){
+    clearInputs()
     position.classList.toggle('inactive')
     tabDiv.classList.toggle('inactive')
 
@@ -240,8 +272,69 @@ function toggleCalcMode(){
     decimalsSection.classList.toggle('inactive');
 }
 
+const degreesLatGrades = document.querySelector('.degreesLatGrades');
+const degreesLatMinutes = document.querySelector('.degreesLatMinutes');
+const degreesLatSeconds = document.querySelector('.degreesLatSeconds');
+const degreesLongGrades = document.querySelector('.degreesLongGrades');
+const degreesLongMinutes = document.querySelector('.degreesLongMinutes');
+const degreesLongSeconds = document.querySelector('.degreesLongSeconds');
 
 
+const inputDecimalLat = document.querySelector('.decimalLat');
+const inputDecimalLong = document.querySelector('.decimalLong');
+
+const calcInDecimalsBtn = document.querySelector('.calcInDecimals');
+calcInDecimalsBtn.addEventListener('click', calcSinceDecimals);
+function calcSinceDecimals(){
+    actualLoc[0] = parseFloat(inputDecimalLat.value);
+    actualLoc[1] = parseFloat(inputDecimalLong.value);
+    if(actualLoc[1] > 0){
+        actualLoc[1] *= -1;
+    }
+
+    toggleToMenu()
+    putMarkNcalc()
+}
+
+const calcInDegreessBtn = document.querySelector('.calcInDegrees');
+calcInDegreessBtn.addEventListener('click', calcSinceDegrees);
+function calcSinceDegrees(){
+    actualLoc[0] = parseInt(degreesLatGrades.value) + parseInt(degreesLatMinutes.value)/60 + parseFloat(degreesLatSeconds.value)/360;
+    actualLoc[1] = parseInt(degreesLongGrades.value) + parseInt(degreesLongMinutes.value)/60 + parseFloat(degreesLongSeconds.value)/360;
+    if(actualLoc[1] > 0){
+        actualLoc[1] *= -1;
+    }
+
+    if(actualLoc[1] > 0){
+        actualLoc[1] *= -1;
+    }
+
+    toggleToMenu()
+    putMarkNcalc()
+}
+
+function putMarkNcalc(){
+    clearInputs()
+
+    localizacion = L.marker(actualLoc, {icon: redIcon}).addTo(map);
+    localizacion.bindPopup("Ubicación actual");
+    
+    calcDistances()
+    map.flyTo([actualLoc[0], actualLoc[1]], 9)
+    toggleToCards()
+}
+
+function clearInputs(){
+    degreesLatGrades.value = '';
+    degreesLatMinutes.value = '';
+    degreesLatSeconds.value = '';
+    degreesLongGrades.value = '';
+    degreesLongMinutes.value = '';
+    degreesLongSeconds.value = '';
+
+    inputDecimalLat.value = '';
+    inputDecimalLong.value = '';
+}
 
 /*const selectBtn = document.querySelector('.selectPoint')
 selectBtn.addEventListener('click', clickOnMap)

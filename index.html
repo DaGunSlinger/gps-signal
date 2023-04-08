@@ -62,11 +62,11 @@
                 <div class="tab--section__degrees">
                     <h1>Latitud</h1>
                     <div class="degrees--container">
-                        <input class="degrees--container__input" type="text">
+                        <input class="degrees--container__input degreesLatGrades" type="text">
                         <h1>°</h1>
-                        <input class="degrees--container__input" type="text">
+                        <input class="degrees--container__input degreesLatMinutes" type="text">
                         <h1>'</h1>
-                        <input class="degrees--container__input long" type="text">
+                        <input class="degrees--container__input long degreesLatSeconds" type="text">
                         <h1>''</h1>
                         <select class="degrees--container__selector">
                             <option value="north">N</option>
@@ -75,14 +75,15 @@
                     </div>
                     <h1>Longitud</h1>
                     <div class="degrees--container">
-                        <input class="degrees--container__input" type="text">
+                        <input class="degrees--container__input degreesLongGrades" type="text">
                         <h1>°</h1>
-                        <input class="degrees--container__input" type="text">
+                        <input class="degrees--container__input degreesLongMinutes" type="text">
                         <h1>'</h1>
-                        <input class="degrees--container__input long" type="text">
+                        <input class="degrees--container__input long degreesLongSeconds" type="text">
                         <h1>''</h1>
+                        <h1 class="WestLong">W</h1>
                     </div>
-                    <button class="position--button insertCoords">
+                    <button class="position--button calcInDegrees">
                         <p>Calcular en grados</p>
                         <span class="position--button__arrow"></span>
                     </button>
@@ -92,13 +93,13 @@
                 <div class="tab--section__decimal inactive">
                     <div class="decimal--container">
                         <h1>Latitud</h1>
-                        <input class="decimal--container__input" type="text">
+                        <input class="decimal--container__input decimalLat" type="text">
                     </div>
                     <div class="decimal--container">
                         <h1>Longitud</h1>
-                        <input class="decimal--container__input" type="text">
+                        <input class="decimal--container__input decimalLong" type="text">
                     </div>
-                    <button class="position--button insertCoords">
+                    <button class="position--button calcInDecimals">
                         <p>Calcular en decimales</p>
                         <span class="position--button__arrow"></span>
                     </button>
