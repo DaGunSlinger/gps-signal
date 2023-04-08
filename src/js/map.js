@@ -80,12 +80,14 @@ function printCards(ARR){
         stationName.innerText = ARR[i][0];
         stationName.classList.add('stationcard--name')
 
+        const righTopDiv = document.createElement('div');
+        righTopDiv.classList.add('stationcard--rightTop')
         const stationTime = document.createElement('p');
         stationTime.innerText = ARR[i][3];
         stationTime.classList.add('stationcard--time')
     
     
-        const stationCard = document.createElement('div');
+        const stationCard = document.createElement('button');
         stationCard.classList.add('stationcard')
 
         const containerLeft = document.createElement('div');
@@ -110,12 +112,13 @@ function printCards(ARR){
         arrow.classList.add('position--button__arrow')
         const coordsAct = ARR[i][4]
         //console.log('params: ' , coordsAct, actualLoc);
-        arrow.onclick = () => drawLine(coordsAct)
+        stationCard.onclick = () => drawLine(coordsAct)
         
         containerLeft.append(stationName)
         containerLeft.append(stationActive)
         stationCard.append(containerLeft)
         stationCard.append(stationDist)
+        stationCard.append(righTopDiv)
         stationCard.append(stationTime)
         stationCard.append(arrow)
         cardsDiv.appendChild(stationCard)
@@ -231,6 +234,11 @@ function drawLine(coords){
     }
     map.flyTo([latProm, longProm], zoomMap)
 }
+const infoBtn = document.querySelector('.infoBtn');
+const lateralMenu = document.querySelector('.lateralMenuContainer'); 
+const closeBurguerMenu = document.querySelector('.closeBurguerMenu');
+infoBtn.addEventListener('click',() => lateralMenu.classList.toggle('inactive'))
+closeBurguerMenu.addEventListener('click', () => lateralMenu.classList.toggle('inactive'))
 
 const returnBtn = document.querySelector('.cards--navigation__return')
 returnBtn.addEventListener('click', returnToStart);
@@ -245,6 +253,7 @@ function toggleToMenu(){
     if(document.querySelector('.degrees--container__selector').value === '-1'){
         document.querySelector('.degrees--container__selector').value = '1'
     }
+    infoBtn.classList.toggle('inactive')
 
     clearInputs()
     position.classList.toggle('inactive')
