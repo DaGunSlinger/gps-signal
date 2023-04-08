@@ -5,6 +5,20 @@
     width: 100%;
     height: 70%;
     position: fixed;
+    & .actionBtns{
+        position: relative;
+        .returnBtn{
+            @include returnBtn;
+            position: absolute;
+            top: 1.4rem;
+            left: 0.7rem;
+            z-index: 800;
+            width: 4rem;
+            height: 4rem;
+            border-radius: 4rem;
+            background-color: $color-alternative;
+        }
+    } 
 }
 
 .leaflet-control-attribution {
@@ -25,7 +39,8 @@
     font-family: $fuente1;
 
 
-    background-color: $color-light;
+    background-color: $color-primary;
+
     border: 0px solid gray;
     box-shadow: 0rem 0.5rem 0.8rem black;
     border-radius: 1.5rem;
@@ -63,53 +78,20 @@
         }
     }
     &--button{
-        width: 80%;
-        height: 6rem;
-        padding-left: 1rem;
-        margin-bottom: 1rem;
-        display: flex;
-        align-items: center;
-        position: relative;
-
-        border: none;
-        border-radius: 2rem;
-        background-color: $color-alternative;
-        cursor: pointer;
-        font-size: 1.6rem;
-        font-weight: 400;
-        box-shadow: 0 1px 2px rgba(0,0,0,0.16), 0 1px 3px rgba(0,0,0,0.23);
+        @include button;
 
         p{
             font-size: 1.6rem;
             margin-left: 1.5rem;
         }
         &__location{
-            width: 4rem;
-            height: 4rem;
-    
-            background-color: $color-primary;
-            border: none;
-            padding: 1rem;
-            border-radius: 2rem;
-    
+            @include icon;
             background-image: url("../assets/gps.png");
-            background-position: center;
-            background-repeat: no-repeat;
-            background-size: 2.4rem 2.4rem;
+
         }
         &__coords{
-            width: 4rem;
-            height: 4rem;
-    
-            background-color: $color-primary;
-            border: none;
-            padding: 1rem;
-            border-radius: 2rem;
-    
+            @include icon;
             background-image: url("../assets/coords.png");
-            background-position: center;
-            background-repeat: no-repeat;
-            background-size: 2.4rem 2.4rem;
         }
         &__arrow{
             width: 4rem;
@@ -128,8 +110,8 @@
             background-size: 2.4rem 2.4rem;
         }
         &:hover{
-            color: $color-light;
-            background-color: $color-secondary;
+            color: $color-secondary;
+            background-color: $color-light;
         }
     }
 }
@@ -171,21 +153,7 @@
         align-items: center;
         margin: 1.5rem 0 1rem 0.8rem;
         &__return{
-            width: 5rem;
-            height: 5rem;
-            background-color: $color-light;
-            border-radius: 2rem;
-            //box-shadow: 0 1px 15px rgba(0,0,0,0.16), 0 1px 15px rgba(0,0,0,0.23);
-            z-index: 500;
-    
-            transform: rotate(180deg);
-            width: 4rem;
-            height: 4rem;
-            cursor: pointer;
-            background-image: url("../assets/flechita.svg");
-            background-position: center;
-            background-repeat: no-repeat;
-            background-size: 2.4rem 2.4rem;
+            @include returnBtn;
         }
         & h1{
             color: $color-primary;
@@ -210,7 +178,7 @@
     box-shadow: 0 1px 2px rgba(0,0,0,0.16), 0 1px 3px rgba(0,0,0,0.23);
 
     &--left{
-        margin-left: 0.8rem;
+        margin-left: 0.4rem;
         @include grid-column(1,2);
         @include grid-row(1,3);
     }
@@ -245,6 +213,128 @@
         @include grid-row(2,3);
     }
 }
+
+.tab{
+    width: 100%;
+    height: 45%;
+
+    position: absolute;
+    z-index: 500;
+    bottom: -2rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    overflow: auto;
+    
+    font-family: $fuente1;
+    background-color: $color-alternative;
+    border: 0px solid gray;
+    box-shadow: 0rem 0.5rem 0.8rem black;
+    // border-radius: 1.5rem;
+    font-size: 1.6rem;
+    font-weight: 700;
+    cursor: auto;
+    color: $color-gray;
+    
+    & .tab--buttonsContainer{
+        @include display-grid;
+        @include grid-template-columns(1fr 1fr);
+        width: 100%;
+        height: 4rem;
+
+        // margin-bottom: 0.5rem;
+
+        & .tab--button{
+            border: none;
+            font-size: 1.8rem;
+            font-weight: 400;
+            background-color: $color-alternative;
+            color: $color-primary;
+            // border-radius: 1.5rem 1.5rem 0 0;
+        }
+
+        & .inactiveBtn{
+            background-color: $color-light;
+            color: $color-gray;
+        }
+    }
+    & .tab--section{
+        width: 80%;
+        display: flex;
+        flex-direction: column;
+        
+        margin: 0 auto;
+
+        & .degrees--container{
+            display: flex;
+            margin-bottom: 1rem;
+            &__input{
+                width: 6rem;
+                height: 4rem;
+                font-size: 2rem;
+                
+                padding: 0 auto;
+                justify-content: center;
+                text-align: center;
+
+                border-radius: 1rem;
+                border: 1px solid $color-gray;
+                color: $color-primary;
+            }
+            & .long{
+                width: 8rem;
+            }
+            h1{
+                margin: 0 1rem 0 0.5rem;
+            }
+            &__selector{
+                width: 5rem;
+                height: 4rem;
+
+                font-size: 2rem;
+                font-weight: 700;
+                padding-left: 1rem;
+
+                border-radius: 0.5rem;
+                border: none;
+                background-color: $color-secondary;
+                color: $color-light;
+            }
+        }
+
+        & .decimal--container{
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-start;
+            margin: 1rem auto 1rem auto;
+            & h1{
+                text-align: left;
+                //margin: 0 auto;
+            }
+            &__input{
+                width: 100%;
+                height: 4rem;
+                font-size: 2rem;
+
+                margin: 0 auto;
+                padding: 0 auto;
+                justify-content: center;
+                text-align: center;
+
+                border-radius: 1rem;
+                border: 1px solid $color-gray;
+                color: $color-primary;
+            }
+        }
+        & .position--button{
+            width: 100%;
+            margin: 2rem 0 0 0;
+        }
+    }
+}
 .inactive{
     display: none;
+}
+.leaflet-top{
+    margin-top: 6rem;
 }

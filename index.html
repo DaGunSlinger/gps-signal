@@ -24,6 +24,9 @@
 <body>
     <section>
         <div class="map" id="map">
+            <div class="actionBtns">
+                <div class="returnBtn inactive"></div>
+            </div>
         </div>
         <div class="position">
             <div class="position--info">
@@ -36,7 +39,7 @@
                 <p>Utilizar mi ubicación actual</p>
                 <span class="position--button__arrow"></span>
             </button>
-            <button class="position--button">
+            <button class="position--button insertCoords">
                 <span class="position--button__coords"></span>
                 <p>Introducir coordenadas</p>
                 <span class="position--button__arrow"></span>
@@ -48,6 +51,59 @@
                 <div class="cards--navigation__return keep"></div>
                 <h1 class="cards--navigation__title keep">Resultados para tu ubicación</h1>
             </div>
+        </div>
+
+        <div class="tab inactive">
+            <div class="tab--buttonsContainer">
+                <button class="tab--button degreesMenu activeBtn">DMS</button>
+                <button class="tab--button decimalsMenu inactiveBtn">DECIMAL</button>
+            </div>
+            <section class="tab--section degreesSection">
+                <div class="tab--section__degrees">
+                    <h1>Latitud</h1>
+                    <div class="degrees--container">
+                        <input class="degrees--container__input" type="text">
+                        <h1>°</h1>
+                        <input class="degrees--container__input" type="text">
+                        <h1>'</h1>
+                        <input class="degrees--container__input long" type="text">
+                        <h1>''</h1>
+                        <select class="degrees--container__selector">
+                            <option value="north">N</option>
+                            <option value="south">S</option>
+                        </select>
+                    </div>
+                    <h1>Longitud</h1>
+                    <div class="degrees--container">
+                        <input class="degrees--container__input" type="text">
+                        <h1>°</h1>
+                        <input class="degrees--container__input" type="text">
+                        <h1>'</h1>
+                        <input class="degrees--container__input long" type="text">
+                        <h1>''</h1>
+                    </div>
+                    <button class="position--button insertCoords">
+                        <p>Calcular en grados</p>
+                        <span class="position--button__arrow"></span>
+                    </button>
+                </div>
+            </section>
+            <section class="tab--section decimalSection">
+                <div class="tab--section__decimal inactive">
+                    <div class="decimal--container">
+                        <h1>Latitud</h1>
+                        <input class="decimal--container__input" type="text">
+                    </div>
+                    <div class="decimal--container">
+                        <h1>Longitud</h1>
+                        <input class="decimal--container__input" type="text">
+                    </div>
+                    <button class="position--button insertCoords">
+                        <p>Calcular en decimales</p>
+                        <span class="position--button__arrow"></span>
+                    </button>
+                </div>
+            </section>
         </div>
 
         <!-- <button class="selectPoint">Seleccionar</button>

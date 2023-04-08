@@ -1,8 +1,13 @@
 /*Colores*/
 $color-primary: #7f59ed;
-$color-light: #ececec;
-$color-secondary: #1c1934;
+$color-light: #ecf0fb;
+$color-gray: #b7b8c2;
+$color-secondary: #1b1931;
 $color-alternative: #ffffff;
+
+$color-blue: #9bc9ff;
+$color-deepBlue: #1c81cf;
+
 $color-true: #1bad16;
 $color-false: #f3413c;
 
@@ -18,4 +23,53 @@ $fuente3: 'Satisfy', cursive;
 }
 html{
     font-size: 62.5%;
+}
+@mixin icon {
+    width: 4rem;
+    height: 4rem;
+
+    border: none;
+    padding: 1rem;
+    border-radius: 2rem;
+    background-color: $color-blue;
+
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: 2.4rem 2.4rem;
+}
+
+@mixin button{
+    width: 80%;
+    height: 6rem;
+    padding-left: 1rem;
+    margin-bottom: 1rem;
+    display: flex;
+    align-items: center;
+    position: relative;
+    font-size: 1.6rem;
+
+    border: none;
+    border-radius: 2rem;
+    color: $color-alternative;
+    background-color: $color-secondary;
+    cursor: pointer;
+    font-weight: 400;
+    box-shadow: 0 1px 2px rgba(0,0,0,0.16), 0 1px 3px rgba(0,0,0,0.23);
+}
+@mixin returnBtn{
+    width: 5rem;
+    height: 5rem;
+    background-color: $color-light;
+    border-radius: 2rem;
+    //box-shadow: 0 1px 15px rgba(0,0,0,0.16), 0 1px 15px rgba(0,0,0,0.23);
+    z-index: 500;
+
+    transform: rotate(180deg);
+    width: 4rem;
+    height: 4rem;
+    cursor: pointer;
+    background-image: url("../assets/flechita.svg");
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: 2.4rem 2.4rem;
 }

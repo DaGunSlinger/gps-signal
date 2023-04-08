@@ -30,12 +30,6 @@ const cardsDiv = document.querySelector('.cards');
 
 const geoBtn = document.querySelector('.geolocation')
 
-/*const selectBtn = document.querySelector('.selectPoint')
-selectBtn.addEventListener('click', clickOnMap)
-
-const calcBtn = document.querySelector('.calc');
-calcBtn.addEventListener('click', changeCoords);*/
-
 
 function calcDistances(){
     let distancesTemps = []
@@ -174,6 +168,7 @@ function toggleToCards(){
     position.classList.toggle('inactive')
     cards.classList.toggle('inactive')
 }
+
 function clearCards(){
     const arrCards = cardsDiv.querySelectorAll(':not(.keep)');
     arrCards.forEach(div => div.remove())
@@ -208,6 +203,51 @@ function drawLine(coords){
 
 const returnBtn = document.querySelector('.cards--navigation__return')
 returnBtn.addEventListener('click', returnToStart);
+
+const coordsBtn = document.querySelector('.insertCoords')
+coordsBtn.addEventListener('click', goToCoords);
+
+function goToCoords(){
+    toggleToMenu()
+}
+
+function toggleToMenu(){
+    position.classList.toggle('inactive')
+    tabDiv.classList.toggle('inactive')
+
+    ActionReturnBtn.classList.toggle('inactive')
+}
+
+const tabDiv = document.querySelector('.tab')
+
+const degreesBtn = document.querySelector('.degreesMenu');
+const degreesSection = document.querySelector('.tab--section__degrees');
+
+const decimalsBtn = document.querySelector('.decimalsMenu');
+const decimalsSection = document.querySelector('.tab--section__decimal');
+
+const ActionReturnBtn = document.querySelector('.returnBtn'); 
+ActionReturnBtn.addEventListener('click', toggleToMenu)
+
+degreesBtn.addEventListener('click', toggleCalcMode)
+decimalsBtn.addEventListener('click', toggleCalcMode);
+
+function toggleCalcMode(){
+    degreesBtn.classList.toggle('inactiveBtn');
+    decimalsBtn.classList.toggle('inactiveBtn');
+
+    degreesSection.classList.toggle('inactive');
+    decimalsSection.classList.toggle('inactive');
+}
+
+
+
+
+/*const selectBtn = document.querySelector('.selectPoint')
+selectBtn.addEventListener('click', clickOnMap)
+
+const calcBtn = document.querySelector('.calc');
+calcBtn.addEventListener('click', changeCoords);*/
 
 function clickOnMap(){
     const center = map.getCenter()
