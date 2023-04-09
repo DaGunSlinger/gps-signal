@@ -172,6 +172,8 @@
         margin: 1.5rem 0 1rem 0.8rem;
         &__return{
             @include returnBtn;
+            border: none;
+            box-shadow: none;
         }
         & h1{
             color: $color-primary;
@@ -425,6 +427,14 @@
         height: 100vh;
         background-color: $color-light;
         z-index: 500;
+        font-family: $fuente2;
+        padding-right: 2rem;
+        span{
+            display: inline-block;
+            @include icon;
+            margin-right: 1rem;
+            // background-color: transparent;
+        }
         &--title{
             margin: 2rem 0 0 1rem;
             display: flex;
@@ -439,6 +449,56 @@
                 font-family: $fuente2;
                 font-size: 2rem;
                 color: $color-primary;
+            }
+        }
+        &--surveyorInfo{
+            margin: 2rem 0 1rem 1rem;
+            div{
+                display: flex;
+                align-items: center;
+                font-size: 1.4rem;
+                font-weight: 400;
+                color: $color-secondary;
+                margin-bottom: 1rem;
+                cursor: pointer;
+            }
+            .questionIcon{
+                background-image: url("../assets/question.png");
+                background-color: transparent;
+                background-size: 3rem 3rem;
+            }
+            .piIcon{
+                background-image: url("../assets/pi.png");
+                background-color: transparent;
+            }
+            .gpsIcon{
+                background-image: url("../assets/red.png");
+                background-color: transparent;
+                background-size: 4rem 4rem;
+            }
+        }
+        &--appInfo{
+            margin: 3rem 0 1rem 1rem;
+            border-top: 1px solid rgba(0,0,0,0.05);
+            padding-top: 3rem;
+            div{
+                display: flex;
+                align-items: center;
+                font-size: 1.4rem;
+                font-weight: 400;
+                color: $color-secondary;
+                margin-bottom: 1rem;
+                cursor: pointer;
+            }
+            .focoIcon{
+                background-image: url("../assets/bombilla.png");
+                background-color: transparent;
+                background-size: 3rem 3rem;
+            }
+            .likeIcon{
+                background-image: url("../assets/like.png");
+                background-color: transparent;
+                background-size: 3rem 3rem;
             }
         }
     }
