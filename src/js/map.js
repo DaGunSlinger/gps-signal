@@ -2,13 +2,15 @@ import lista from './variables.js';
 
 const mapCenter = [5.5,-74];
 
-let map = L.map("map").setView(mapCenter,5);
-L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png?{foo}', {foo: 'bar', attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'}).addTo(map);
-
 let actualLoc = [4.6467863351,-74.0799486565];
 let localizacion;
 let circle80;
 let stationline;
+let zoomVH;
+(window.screen.width > 961) ? zoomVH = 1.4 : zoomVH = 0; 
+
+let map = L.map("map").setView(mapCenter,5 + zoomVH);
+L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png?{foo}', {foo: 'bar', attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'}).addTo(map);
 
 //icons 
 const redIcon = L.icon({
@@ -186,7 +188,7 @@ function returnToStart(){
     if(localizacion != undefined){
         map.removeLayer(localizacion)
     }
-    map.flyTo(mapCenter, 5)
+    map.flyTo(mapCenter, 5 + zoomVH)
     toggleToCards()
 }
 
@@ -236,7 +238,7 @@ function drawLine(coords){
             zoomMap = 5
         }
     }
-    map.flyTo([latProm, longProm], zoomMap)
+    map.flyTo([latProm, longProm], zoomMap +zoomVH)
 }
 const infoBtn = document.querySelector('.infoBtn');
 const lateralMenu = document.querySelector('.lateralMenuContainer'); 
@@ -348,7 +350,7 @@ function putMarkNcalc(){
     localizacion.bindPopup("Ubicación actual");
     
     calcDistances()
-    map.flyTo([actualLoc[0], actualLoc[1]], 9)
+    map.flyTo([actualLoc[0], actualLoc[1]], 9 + zoomVH)
     toggleToCards()
 }
 
