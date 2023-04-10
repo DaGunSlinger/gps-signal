@@ -27,6 +27,7 @@ lista.forEach(cosa => {
 })
 
 const cardsDiv = document.querySelector('.cards');
+const cardsContainer = document.querySelector('.cardsContainer')
 
 const geoBtn = document.querySelector('.geolocation')
 
@@ -96,15 +97,15 @@ function printCards(ARR){
         if(i===0 && ARR[i][1] < 80 && ARR[i][2] === 1){
             const stationTitle = document.createElement('h1');
             stationTitle.innerText = "La mejor opción";
-            cardsDiv.appendChild(stationTitle);
+            cardsContainer.appendChild(stationTitle);
         } else if(i === 1 && ARR[i][1] < 80){
             const stationTitle = document.createElement('h1');
             stationTitle.innerText = "Dentro del área de rastreo"
-            cardsDiv.appendChild(stationTitle)
+            cardsContainer.appendChild(stationTitle)
         } else if(ARR[i][1] > 80 && flag === 0){
             const stationTitle = document.createElement('h1');
             stationTitle.innerText = "Otras opciones"
-            cardsDiv.appendChild(stationTitle)
+            cardsContainer.appendChild(stationTitle)
             flag++
         }
 
@@ -113,6 +114,9 @@ function printCards(ARR){
         const coordsAct = ARR[i][4]
         //console.log('params: ' , coordsAct, actualLoc);
         stationCard.onclick = () => drawLine(coordsAct)
+
+        // const cardsContainer = document.createElement('div')
+        // cardsContainer.classList.add('cardsContainer')
         
         containerLeft.append(stationName)
         containerLeft.append(stationActive)
@@ -121,7 +125,7 @@ function printCards(ARR){
         stationCard.append(righTopDiv)
         stationCard.append(stationTime)
         stationCard.append(arrow)
-        cardsDiv.appendChild(stationCard)
+        cardsContainer.appendChild(stationCard)
     
         i++;
     }
@@ -166,10 +170,10 @@ function toggleToCards(){
 }
 
 function clearCards(){
-    const arrCards = cardsDiv.querySelectorAll(':not(.keep)');
+    const arrCards = cardsContainer.querySelectorAll(':not(.keep)');
     arrCards.forEach(div => div.remove())
 
-    const arrH1 = cardsDiv.querySelectorAll('h1:not(.keep)');
+    const arrH1 = cardsContainer.querySelectorAll('h1:not(.keep)');
     arrH1.forEach(el => el.remove())
 }
 
@@ -360,6 +364,13 @@ function clearInputs(){
     inputDecimalLong.value = '';
 }
 
+const warningDiv = document.querySelector('.warning')
+function showWarning(){
+    warningDiv.classList.toggle('inactive')
+}
+const closeWarning = document.querySelector('.closeWarning')
+closeWarning.addEventListener('click',() => showWarning())
+
 /*const selectBtn = document.querySelector('.selectPoint')
 selectBtn.addEventListener('click', clickOnMap)
 
@@ -375,12 +386,6 @@ function clickOnMap(){
     map.addLayer(localizacion)
 } 
 
-const warningDiv = document.querySelector('.warning--activator')
-function showWarning(){
-    warningDiv.classList.toggle('inactive')
-}
-const closeWarning = document.querySelector('.closeWarning')
-closeWarning.addEventListener('click',() => showWarning())
 
 function changeCoords(){
     if(circle80 != undefined){

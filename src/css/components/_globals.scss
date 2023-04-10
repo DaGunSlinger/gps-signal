@@ -40,14 +40,16 @@ html{
 
 @mixin button{
     width: 80%;
+    max-width: 60rem;
     height: 6rem;
+    
+    position: relative;
     padding-left: 1rem;
     margin-bottom: 1rem;
     display: flex;
     align-items: center;
-    position: relative;
+    
     font-size: 1.6rem;
-
     border: none;
     border-radius: 2rem;
     color: $color-alternative;
