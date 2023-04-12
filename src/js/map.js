@@ -166,11 +166,11 @@ function getGeolocation(){
 
 const position = document.querySelector('.position')
 const cards = document.querySelector('.cards')
-const navBar = document.querySelector('.navigation')
+const returnPosition = document.querySelector('.returnPosition')
 function toggleToCards(){
     position.classList.toggle('inactive')
     cards.classList.toggle('inactive')
-    navBar.classList.toggle('inactive')
+    returnPosition.classList.toggle('inactive')
 }
 
 function clearCards(){
@@ -248,7 +248,7 @@ const closeBurguerMenu = document.querySelector('.closeBurguerMenu');
 infoBtn.addEventListener('click',() => lateralMenu.classList.toggle('inactive'))
 closeBurguerMenu.addEventListener('click', () => lateralMenu.classList.toggle('inactive'))
 
-const returnBtn = document.querySelector('.navigation__return')
+const returnBtn = document.querySelector('.returnPosition__return')
 returnBtn.addEventListener('click', returnToStart);
 
 const coordsBtn = document.querySelector('.insertCoords')
@@ -261,13 +261,12 @@ function toggleToMenu(){
     if(document.querySelector('.degrees--container__selector').value === '-1'){
         document.querySelector('.degrees--container__selector').value = '1'
     }
-    infoBtn.classList.toggle('inactive')
+    // infoBtn.classList.toggle('inactive')  //PILAS YA NO ESTA
+    returnTab.classList.toggle('inactive')
 
     clearInputs()
     position.classList.toggle('inactive')
     tabDiv.classList.toggle('inactive')
-
-    ActionReturnBtn.classList.toggle('inactive')
 }
 
 const tabDiv = document.querySelector('.tab')
@@ -278,7 +277,8 @@ const degreesSection = document.querySelector('.tab--section__degrees');
 const decimalsBtn = document.querySelector('.decimalsMenu');
 const decimalsSection = document.querySelector('.tab--section__decimal');
 
-const ActionReturnBtn = document.querySelector('.returnBtn'); 
+const returnTab  = document.querySelector('.returnTab')
+const ActionReturnBtn  = document.querySelector('.returnTab__button')
 ActionReturnBtn.addEventListener('click', toggleToMenu)
 
 degreesBtn.addEventListener('click', toggleCalcMode)
