@@ -166,9 +166,11 @@ function getGeolocation(){
 
 const position = document.querySelector('.position')
 const cards = document.querySelector('.cards')
+const navBar = document.querySelector('.navigation')
 function toggleToCards(){
     position.classList.toggle('inactive')
     cards.classList.toggle('inactive')
+    navBar.classList.toggle('inactive')
 }
 
 function clearCards(){
@@ -246,7 +248,7 @@ const closeBurguerMenu = document.querySelector('.closeBurguerMenu');
 infoBtn.addEventListener('click',() => lateralMenu.classList.toggle('inactive'))
 closeBurguerMenu.addEventListener('click', () => lateralMenu.classList.toggle('inactive'))
 
-const returnBtn = document.querySelector('.cards--navigation__return')
+const returnBtn = document.querySelector('.navigation__return')
 returnBtn.addEventListener('click', returnToStart);
 
 const coordsBtn = document.querySelector('.insertCoords')
