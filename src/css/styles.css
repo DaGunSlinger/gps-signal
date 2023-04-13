@@ -408,8 +408,9 @@ html {
 
 .tab {
   width: 100%;
-  height: calc(50% - 5rem);
-  position: absolute;
+  height: calc(50% - 2rem);
+  position: fixed;
+  padding: 3rem 0 2rem 0;
   z-index: 500;
   bottom: 0px;
   display: -webkit-box;
