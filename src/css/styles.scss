@@ -274,11 +274,11 @@
 
 .tab{
     width: 100%;
-    height: calc(50% - 3rem);
+    height: calc(50% - 5rem);
 
     position: absolute;
     z-index: 500;
-    bottom: -2rem;
+    bottom: 0px;
     display: flex;
     flex-direction: column;
     justify-content: flex-start;
