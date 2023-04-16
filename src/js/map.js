@@ -154,7 +154,19 @@ function getGeolocation(){
         putMarkNcalc()
     }
     const error = (err) => {
-        console.warn(`Error ${err.code}: ${err.message}`);
+        if(err.code === 1){
+            console.log(err.message);
+            showPop()
+            showBlock()
+            return;
+        } else if (err.code === 3){
+            console.log(err.message);
+            showPop()
+            showCalibrate()
+            return;
+        }
+        //1: User denied geolocation
+        //3: time Out
     }
     let options = {
         enableHighAccuracy: true,
@@ -309,6 +321,7 @@ function calcSinceDecimals(){
     actualLoc[0] = parseFloat(inputDecimalLat.value);
     actualLoc[1] = parseFloat(inputDecimalLong.value);
     if(isNaN(actualLoc[0]) || isNaN(actualLoc[1]) ){
+        showPop()
         showWarning()
         return;
     }
@@ -329,6 +342,7 @@ function calcSinceDegrees(){
 
     
     if(isNaN(actualLoc[0]) || isNaN(actualLoc[1]) ){
+        showPop()
         showWarning()
         return;
     }
@@ -368,18 +382,48 @@ function clearInputs(){
     inputDecimalLong.value = '';
 }
 
-const warningDiv = document.querySelector('.warning')
-function showWarning(){
-    warningDiv.classList.toggle('inactive')
+const popUp = document.querySelector('.popUp');
+function showPop(){
+    popUp.classList.toggle('inactive')
 }
+
+const alertDiv = document.querySelector('.alert');
+function showWarning(){
+    alertDiv.classList.toggle('inactive')
+}
+
+const blockedDiv = document.querySelector('.blocked');
+function showBlock(){
+    blockedDiv.classList.toggle('inactive')
+}
+const calibrate = document.querySelector('.calibrate');
+function showCalibrate(){
+    calibrate.classList.toggle('inactive')
+}
+
 const closeWarning = document.querySelector('.closeWarning')
-closeWarning.addEventListener('click',() => showWarning())
+closeWarning.addEventListener('click',() => {
+    showWarning()
+    showPop()
+})
+
+const closeBlock = document.querySelector('.closeBlock')
+closeBlock.addEventListener('click',() => {
+    showBlock()
+    showPop()
+})
+
+const closeCalibrate = document.querySelector('.closeCalibrate')
+closeCalibrate.addEventListener('click',() => {
+    showCalibrate()
+    showPop()
+})
 
 /*const selectBtn = document.querySelector('.selectPoint')
 selectBtn.addEventListener('click', clickOnMap)
 
 const calcBtn = document.querySelector('.calc');
-calcBtn.addEventListener('click', changeCoords);*/
+calcBtn.addEventListener('click', changeCoords);
 
 function clickOnMap(){
     const center = map.getCenter()
@@ -399,3 +443,4 @@ function changeCoords(){
     actualLoc[1] = localizacion._latlng.lng
     calcDistances()
 }
+*/

@@ -11,6 +11,89 @@ html {
   font-size: 62.5%;
 }
 
+/* ---------------------------------HTML WITH PLACEHOLER---------------------------------->
+<section class="popUp inactive">
+        <div class="popUp--warning">
+            <span class="popUp--warning__icon"></span>
+            <h1 class="popUp--warning__title">Verifica tus datos</h1>
+            <p class="popUp--warning__description">Los datos ingresados son incorrectos o hay datos faltantes</p>
+            <button class="position--button closeWarning">
+                <p>Entendido</p>
+            </button>
+        </div>
+</section>
+
+------------------------------------JUST COPY AND REPLACE IN STYLESHEET--------------------->
+.warning{
+    &--popUp{
+        &__icon{
+            background-image: url(../REPLACE HERE YOUR IMG);
+        }
+    }
+}
+*/
+.popUp {
+  width: 100%;
+  height: 100vh;
+  position: fixed;
+  z-index: 1001;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  font-family: "Nunito", sans-serif;
+  background-color: rgba(0, 0, 0, 0.5);
+}
+.popUp--warning {
+  width: 25rem;
+  height: 28rem;
+  border-radius: 1rem;
+  background-color: #ffffff;
+  padding: 2rem;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  text-align: center;
+}
+.popUp--warning__icon {
+  width: 8rem;
+  height: 8rem;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+.popUp--warning__title {
+  font-size: 2rem;
+}
+.popUp--warning__description {
+  font-size: 1.4rem;
+}
+.popUp--warning .position--button {
+  width: 60%;
+  height: 4rem;
+  margin-top: 1rem;
+  text-align: center;
+  padding: 0;
+}
+.popUp--warning .position--button p {
+  margin: 0 auto;
+}
+
 .appContainer {
   width: 100%;
   height: 100vh;
@@ -543,67 +626,14 @@ html {
   margin: 2rem 0 0 0;
 }
 
-.warning {
-  width: 100%;
-  height: 100vh;
-  position: fixed;
-  z-index: 1001;
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
-  font-family: "Nunito", sans-serif;
-  background-color: rgba(0, 0, 0, 0.5);
-}
-.warning--popUp {
-  width: 25rem;
-  height: 28rem;
-  border-radius: 1rem;
-  background-color: #ffffff;
-  padding: 2rem;
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-orient: vertical;
-  -webkit-box-direction: normal;
-      -ms-flex-direction: column;
-          flex-direction: column;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
-  text-align: center;
-}
-.warning--popUp__icon {
-  width: 8rem;
-  height: 8rem;
+.popUp--warning .alert {
   background-image: url(../assets/warning.png);
-  background-position: center;
-  background-repeat: no-repeat;
-  background-size: cover;
 }
-.warning--popUp__title {
-  font-size: 2rem;
+.popUp--warning .block {
+  background-image: url(../assets/block.png);
 }
-.warning--popUp__description {
-  font-size: 1.4rem;
-}
-.warning--popUp .position--button {
-  width: 60%;
-  height: 4rem;
-  margin-top: 1rem;
-  text-align: center;
-  padding: 0;
-}
-.warning--popUp .position--button p {
-  margin: 0 auto;
+.popUp--warning .calibrate {
+  background-image: url(../assets/north.png);
 }
 
 .lateralMenuContainer {

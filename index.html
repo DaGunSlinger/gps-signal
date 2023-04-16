@@ -114,12 +114,28 @@
                 </div>
             </section>
         </div>
-        <section class="warning inactive">
-                <div class="warning--popUp">
-                    <span class="warning--popUp__icon"></span>
-                    <h1 class="warning--popUp__title">Verifica tus datos</h1>
-                    <p class="warning--popUp__description">Los datos ingresados son incorrectos o hay datos faltantes</p>
+        <section class="popUp inactive">
+                <div class="popUp--warning alert inactive">
+                    <span class="popUp--warning__icon alert"></span>
+                    <h1 class="popUp--warning__title">Verifica tus datos</h1>
+                    <p class="popUp--warning__description">Los datos ingresados son incorrectos o hay datos faltantes</p>
                     <button class="position--button closeWarning">
+                        <p>Entendido</p>
+                    </button>
+                </div>
+                <div class="popUp--warning blocked inactive">
+                    <span class="popUp--warning__icon block"></span>
+                    <h1 class="popUp--warning__title">Ubicación deshabilitada</h1>
+                    <p class="popUp--warning__description">Recarga el navegador y habilita la ubicación</p>
+                    <button class="position--button closeBlock">
+                        <p>Entendido</p>
+                    </button>
+                </div>
+                <div class="popUp--warning calibrate inactive">
+                    <span class="popUp--warning__icon calibrate"></span>
+                    <h1 class="popUp--warning__title">Calibrando tu ubicación</h1>
+                    <p class="popUp--warning__description">Tu ubicación es correcta ahora, intentalo nuevamente</p>
+                    <button class="position--button closeCalibrate">
                         <p>Entendido</p>
                     </button>
                 </div>

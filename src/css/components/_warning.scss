@@ -1,0 +1,76 @@
+/* ---------------------------------HTML WITH PLACEHOLER---------------------------------->
+<section class="popUp inactive">
+        <div class="popUp--warning">
+            <span class="popUp--warning__icon"></span>
+            <h1 class="popUp--warning__title">Verifica tus datos</h1>
+            <p class="popUp--warning__description">Los datos ingresados son incorrectos o hay datos faltantes</p>
+            <button class="position--button closeWarning">
+                <p>Entendido</p>
+            </button>
+        </div>
+</section>
+
+------------------------------------JUST COPY AND REPLACE IN STYLESHEET--------------------->
+.warning{
+    &--popUp{
+        &__icon{
+            background-image: url(../REPLACE HERE YOUR IMG);
+        }
+    }
+}
+*/
+
+.popUp{
+    width: 100%;
+    height: 100vh;
+    
+    position: fixed;
+    z-index: 1001;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    
+    font-family: $fuente1;
+    background-color: rgba(0,0,0,0.5);
+
+    &--warning{
+        width: 25rem;
+        height: 28rem;
+        
+        border-radius: 1rem;
+        background-color: $color-alternative;
+        padding: 2rem;
+
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        text-align: center;
+
+        &__icon{
+            width: 8rem;
+            height: 8rem;
+            // background-image: url(../);
+            background-position: center;
+            background-repeat: no-repeat;
+            background-size: cover;
+        }
+        &__title{
+            font-size: 2rem;
+        }
+        &__description{
+            font-size: 1.4rem;
+        }
+        & .position--button{
+            width: 60%;
+            height: 4rem;
+
+            margin-top: 1rem;
+            text-align: center;
+            padding: 0;
+            p {
+                margin: 0 auto;
+            }
+        }
+    }   
+}
