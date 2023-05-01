@@ -82,7 +82,7 @@
         position: relative;
         margin-bottom: 1rem;
         border-radius: 2rem;
-        padding: 1rem 1rem;
+        padding: 1rem 7rem 1rem 1rem;
         
         background-color: $color-primary;
         & h1{
@@ -412,6 +412,27 @@
         }
     }
 }
+
+.cardDetail{
+    width: 100%;
+    height: calc(50% - 2rem);
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    overflow: auto;
+    padding: 1.5rem 0 2rem 0;
+
+    position: fixed;
+    z-index: 500;
+    bottom: -2rem;
+
+    font-family: $fuente1;
+    background-color: $color-light;
+    border: 0px solid gray;
+    font-size: 1.6rem;
+    cursor: auto;
+    color: $color-secondary;
+}
 .popUp{
     &--warning{
         & .alert{
@@ -438,12 +459,40 @@
         background-color: $color-light;
         z-index: 500;
         font-family: $fuente2;
-        padding-right: 2rem;
+        // padding-right: 2rem;
         span{
             display: inline-block;
             @include icon;
             margin-right: 1rem;
             // background-color: transparent;
+        }
+        &--contextGPS{
+            width: 90%;
+            height: auto;
+            
+            
+            align-self: flex-start;
+            margin: 1rem auto 0rem auto;
+            padding: 1rem;
+            
+            border-radius: 1rem;
+            background-color: $color-primary;
+            h1{
+                font-size: 1.8rem;
+                color: $color-alternative;
+                font-weight: 700;
+            }
+            .pdate{
+                color: $color-alternative;
+                font-size: 1.4rem;
+                margin-bottom: 0.8rem;
+                font-weight: 700;
+            }
+            p{
+                font-size: 1.4rem;
+                font-weight: 100;
+                color: $color-light;
+            }
         }
         &--title{
             margin: 2rem 0 0 1rem;
@@ -463,6 +512,7 @@
         }
         &--surveyorInfo{
             margin: 2rem 0 1rem 1rem;
+            padding-right: 2rem;
             div{
                 display: flex;
                 align-items: center;
@@ -491,6 +541,7 @@
             margin: 3rem 0 1rem 1rem;
             border-top: 1px solid rgba(0,0,0,0.05);
             padding-top: 3rem;
+            padding-right: 2rem;
             div{
                 display: flex;
                 align-items: center;
@@ -598,6 +649,9 @@
     .lateralMenuContainer{
         .burguerMenu{
             width: 35%;
+            &--contextGPS{
+                max-width: 60rem;
+            }
         }
     }
 }

@@ -56,6 +56,10 @@
             <div class="cardsContainer"></div>
         </div>
 
+        <div class="cardDetail inactive" id="cardDetail">
+            <div class="cardInfo"></div>
+        </div>
+
         
         <div class="navigation returnTab inactive">
             <div class="navigation__return returnTab__button "></div>
@@ -126,7 +130,7 @@
                 <div class="popUp--warning blocked inactive">
                     <span class="popUp--warning__icon block"></span>
                     <h1 class="popUp--warning__title">Ubicación deshabilitada</h1>
-                    <p class="popUp--warning__description">Recarga el navegador y habilita la ubicación</p>
+                    <p class="popUp--warning__description">Habilita la ubicación y si no funciona recarga el navegador</p>
                     <button class="position--button closeBlock">
                         <p>Entendido</p>
                     </button>
@@ -139,12 +143,23 @@
                         <p>Entendido</p>
                     </button>
                 </div>
+                <div class="popUp--warning cardDetail inactive">
+                    <span class="popUp--warning__icon cardDetail"></span>
+                    <h1 class="popUp--warning__title">Calibrando tu ubicación</h1>
+                    <p class="popUp--warning__description">Tu ubicación es correcta ahora, intentalo nuevamente</p>
+                    <button class="position--button closeCardDetail">
+                        <p>Entendido</p>
+                    </button>
+                </div>
         </section>
         <section class="lateralMenuContainer inactive">
             <div class="burguerMenu">
                 <div class="burguerMenu--title">
                     <button class="returnBtn closeBurguerMenu"></button>
                     <h1>GPS Signal</h1>
+                </div>
+                <div class="burguerMenu--contextGPS">
+                    
                 </div>
                 <div class="burguerMenu--surveyorInfo">
                     <div class="burguerMenu--surveyotInfo__whatIs">

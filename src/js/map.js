@@ -2,6 +2,8 @@ import lista from './variables.js';
 
 const mapCenter = [5.5,-74];
 
+let now = new Date();
+
 let actualLoc = [4.6467863351,-74.0799486565];
 let localizacion;
 let circle80;
@@ -28,7 +30,6 @@ lista.forEach(cosa => {
     L.marker([cosa[1],cosa[2]]).addTo(map).bindPopup(cosa[0]);
 })
 
-const cardsDiv = document.querySelector('.cards');
 const cardsContainer = document.querySelector('.cardsContainer')
 
 const geoBtn = document.querySelector('.geolocation')
@@ -46,7 +47,7 @@ function calcDistances(){
         const c = 2 * Math.atan2(Math.sqrt(a), Math.sqrt(1-a));
         const distance = (radius * c).toFixed(3);
     
-        distancesTemps.push([cosa[0], distance, cosa[3], timeGps(distance), [[cosa[1], cosa[2]], actualLoc]])
+        distancesTemps.push([cosa[0], distance, cosa[3], timeGps(65 + (3 * (distance - 10))), [[cosa[1], cosa[2]], actualLoc], cosa[4], timeGps(15 + 5*distance)])
     })
 
     distancesTemps.sort((a, b)=>{
@@ -98,7 +99,7 @@ function printCards(ARR){
     
         if(i===0 && ARR[i][1] < 80 && ARR[i][2] === 1){
             const stationTitle = document.createElement('h1');
-            stationTitle.innerText = "La mejor opción";
+            stationTitle.innerText = "El menor tiempo";
             cardsContainer.appendChild(stationTitle);
         } else if(i === 1 && ARR[i][1] < 80){
             const stationTitle = document.createElement('h1');
@@ -113,6 +114,8 @@ function printCards(ARR){
 
         const arrow = document.createElement('span');
         arrow.classList.add('position--button__arrow')
+        let arr = [ARR[i][0], ARR[i][1], ARR[i][2], ARR[i][3], ARR[i][4], ARR[i][5], ARR[i][6]]
+        arrow.onclick = () => detailedView(arr)
         const coordsAct = ARR[i][4]
         //console.log('params: ' , coordsAct, actualLoc);
         stationCard.onclick = () => drawLine(coordsAct)
@@ -133,14 +136,13 @@ function printCards(ARR){
     }
 }
 
-function timeGps(distance){
-    let temp = 65 + (3 * (distance - 10))
+function timeGps(temp){
     if(temp >= 60){
         let hrs = temp/60;
-        let min = Math.round((hrs - parseInt(hrs)) * 60 + 1);
+        let min = Math.round((hrs - parseInt(hrs)) * 60);
         temp = parseInt(hrs) + " horas y " + min + " minutos";
     } else {
-        temp = Math.round(temp + 1) + " minutos"
+        temp = Math.round(temp) + " minutos"
     }
     return temp
 }
@@ -254,6 +256,7 @@ function drawLine(coords){
     }
     map.flyTo([latProm, longProm], zoomMap +zoomVH)
 }
+
 const infoBtn = document.querySelector('.infoBtn');
 const lateralMenu = document.querySelector('.lateralMenuContainer'); 
 const closeBurguerMenu = document.querySelector('.closeBurguerMenu');
@@ -418,6 +421,83 @@ closeCalibrate.addEventListener('click',() => {
     showCalibrate()
     showPop()
 })
+
+function detailedView(arr){
+    console.log(arr);
+}
+
+const contextGPSdiv = document.querySelector('.burguerMenu--contextGPS');
+getGPScontext()
+function getGPScontext(){
+    /*GPS WEEK*/ 
+    let date = new Date;
+    let yearNow = date.getFullYear();
+    let monthNow = date.getMonth() + 1;
+    let dayNow = date.getDate();
+    let EPOCHyears = yearNow - 1980;
+    let nowDays = 0;
+
+    for(let i = 0; i < (monthNow - 1); i++){
+        if(i === 1){
+            nowDays += 28;
+        }else if(i < 5){
+            if((i % 2) === 0){
+                nowDays += 31;
+            } else {
+                nowDays += 30;
+            }
+        } else {
+            if((i % 2) === 0){
+                nowDays += 30;
+            } else {
+                nowDays += 31;
+            }
+        }
+    }
+    nowDays += dayNow
+    let GPSweek = Math.floor((nowDays + ((EPOCHyears * 365) + 7))/7);  
+
+    /*JULIAN DAY*/
+
+    if(monthNow < 3) {
+        monthNow += 12; //Si la fecha es en enero o febrero, hay que sumar 12 al mes y restarle uno al año
+        yearNow -= 1;
+    }
+    // let hoursNow = (date.getHours()/24) + (date.getMinutes()/1440) + (date.getSeconds()/86400)
+    let JD = Math.floor(365.25 * (yearNow + 4716)) + Math.floor(30.6001 * (monthNow + 1)) + (dayNow /*+ hoursNow*/) + (2 - Math.floor(yearNow/100) + Math.floor(Math.floor((yearNow/100)/4))) - 1524.5
+
+    /*GPS WEEK NUMBER*/
+
+    const greeting = document.createElement('h1');
+    if(date.getHours() < 12){
+        greeting.innerText = "Buenos días";
+    } else if(date.getHours() < 18){
+        greeting.innerText = "Buenas tardes";
+    } else {
+        greeting.innerText = "Buenas noches";
+    }
+    
+    const dateP = document.createElement('p');
+    dateP.innerHTML = "Hoy: " + dayNow + "/" + monthNow + "/" + yearNow;
+    dateP.classList.add('pdate') 
+
+    const day = document.createElement('p');
+    day.innerHTML = "Día del año: " + nowDays;
+    const GPSweekdiv = document.createElement('p');
+    GPSweekdiv.innerText = "Semana GPS: " + GPSweek;
+    const JDdiv = document.createElement('p');
+    JDdiv.innerText = "Día juliano: " + JD;
+    const GPSweekNdiv = document.createElement('p');
+    GPSweekNdiv.innerText = "Semana y día GPS: " + (String(GPSweek) + date.getDay());
+
+    contextGPSdiv.appendChild(greeting);
+    contextGPSdiv.appendChild(dateP)
+    contextGPSdiv.appendChild(day);
+    contextGPSdiv.appendChild(GPSweekdiv);
+    contextGPSdiv.appendChild(JDdiv);
+    contextGPSdiv.appendChild(GPSweekNdiv);
+}
+
 
 /*const selectBtn = document.querySelector('.selectPoint')
 selectBtn.addEventListener('click', clickOnMap)

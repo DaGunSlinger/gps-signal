@@ -208,7 +208,7 @@ html {
   position: relative;
   margin-bottom: 1rem;
   border-radius: 2rem;
-  padding: 1rem 1rem;
+  padding: 1rem 7rem 1rem 1rem;
   background-color: #7f59ed;
 }
 .position--info h1 {
@@ -626,6 +626,32 @@ html {
   margin: 2rem 0 0 0;
 }
 
+.cardDetail {
+  width: 100%;
+  height: calc(50% - 2rem);
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: start;
+      -ms-flex-pack: start;
+          justify-content: flex-start;
+  overflow: auto;
+  padding: 1.5rem 0 2rem 0;
+  position: fixed;
+  z-index: 500;
+  bottom: -2rem;
+  font-family: "Nunito", sans-serif;
+  background-color: #ecf0fb;
+  border: 0px solid gray;
+  font-size: 1.6rem;
+  cursor: auto;
+  color: #1b1931;
+}
+
 .popUp--warning .alert {
   background-image: url(../assets/warning.png);
 }
@@ -652,7 +678,6 @@ html {
   background-color: #ecf0fb;
   z-index: 500;
   font-family: "Oswald", sans-serif;
-  padding-right: 2rem;
 }
 .lateralMenuContainer .burguerMenu span {
   display: inline-block;
@@ -666,6 +691,32 @@ html {
   background-repeat: no-repeat;
   background-size: 2.4rem 2.4rem;
   margin-right: 1rem;
+}
+.lateralMenuContainer .burguerMenu--contextGPS {
+  width: 90%;
+  height: auto;
+  -ms-flex-item-align: start;
+      align-self: flex-start;
+  margin: 1rem auto 0rem auto;
+  padding: 1rem;
+  border-radius: 1rem;
+  background-color: #7f59ed;
+}
+.lateralMenuContainer .burguerMenu--contextGPS h1 {
+  font-size: 1.8rem;
+  color: #ffffff;
+  font-weight: 700;
+}
+.lateralMenuContainer .burguerMenu--contextGPS .pdate {
+  color: #ffffff;
+  font-size: 1.4rem;
+  margin-bottom: 0.8rem;
+  font-weight: 700;
+}
+.lateralMenuContainer .burguerMenu--contextGPS p {
+  font-size: 1.4rem;
+  font-weight: 100;
+  color: #ecf0fb;
 }
 .lateralMenuContainer .burguerMenu--title {
   margin: 2rem 0 0 1rem;
@@ -705,6 +756,7 @@ html {
 }
 .lateralMenuContainer .burguerMenu--surveyorInfo {
   margin: 2rem 0 1rem 1rem;
+  padding-right: 2rem;
 }
 .lateralMenuContainer .burguerMenu--surveyorInfo div {
   display: -webkit-box;
@@ -737,6 +789,7 @@ html {
   margin: 3rem 0 1rem 1rem;
   border-top: 1px solid rgba(0, 0, 0, 0.05);
   padding-top: 3rem;
+  padding-right: 2rem;
 }
 .lateralMenuContainer .burguerMenu--appInfo div {
   display: -webkit-box;
@@ -861,5 +914,8 @@ html {
   }
   .lateralMenuContainer .burguerMenu {
     width: 35%;
+  }
+  .lateralMenuContainer .burguerMenu--contextGPS {
+    max-width: 60rem;
   }
 }
