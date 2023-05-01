@@ -56,9 +56,9 @@
             <div class="cardsContainer"></div>
         </div>
 
-        <div class="cardDetail inactive" id="cardDetail">
+        <!-- <div class="cardDetail inactive" id="cardDetail">
             <div class="cardInfo"></div>
-        </div>
+        </div> -->
 
         
         <div class="navigation returnTab inactive">
@@ -144,11 +144,13 @@
                     </button>
                 </div>
                 <div class="popUp--warning cardDetail inactive">
-                    <span class="popUp--warning__icon cardDetail"></span>
-                    <h1 class="popUp--warning__title">Calibrando tu ubicación</h1>
-                    <p class="popUp--warning__description">Tu ubicación es correcta ahora, intentalo nuevamente</p>
+                    <!-- <span class="popUp--warning__icon cardName"></span> -->
+                    <h1 class="popUp--warning__title cardName"></h1>
+                    <p class="popUp--warning__description location">La estación se encuentra ubicada en <span class="cardLocation"></span></p>
+                    <p class="popUp--warning__description status">Actualmente se encuentra <span class="cardDetailStatus" id=""></span></p>
+                    <p class="popUp--warning__description time"> <span class="cardDetailedTime"></span></p>
                     <button class="position--button closeCardDetail">
-                        <p>Entendido</p>
+                        <p>Regresar</p>
                     </button>
                 </div>
         </section>

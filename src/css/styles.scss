@@ -413,26 +413,6 @@
     }
 }
 
-.cardDetail{
-    width: 100%;
-    height: calc(50% - 2rem);
-    display: flex;
-    flex-direction: column;
-    justify-content: flex-start;
-    overflow: auto;
-    padding: 1.5rem 0 2rem 0;
-
-    position: fixed;
-    z-index: 500;
-    bottom: -2rem;
-
-    font-family: $fuente1;
-    background-color: $color-light;
-    border: 0px solid gray;
-    font-size: 1.6rem;
-    cursor: auto;
-    color: $color-secondary;
-}
 .popUp{
     &--warning{
         & .alert{
@@ -453,13 +433,15 @@
     position: fixed;
     z-index: 1000;
     display: flex;
+    
     .burguerMenu{
         width: 70%;
-        height: 100vh;
+        height: 100%;
         background-color: $color-light;
         z-index: 500;
         font-family: $fuente2;
         // padding-right: 2rem;
+        padding-left: 2rem;
         span{
             display: inline-block;
             @include icon;
@@ -470,10 +452,9 @@
             width: 90%;
             height: auto;
             
-            
             align-self: flex-start;
-            margin: 1rem auto 0rem auto;
-            padding: 1rem;
+            margin: 1rem auto 0rem calc(5% - 1rem);
+            padding: 2rem;
             
             border-radius: 1rem;
             background-color: $color-primary;
@@ -490,12 +471,12 @@
             }
             p{
                 font-size: 1.4rem;
-                font-weight: 100;
+                font-weight: 400;
                 color: $color-light;
             }
         }
         &--title{
-            margin: 2rem 0 0 1rem;
+            margin: 2rem 0 0 0;
             display: flex;
             align-items: center;
             button{
@@ -511,7 +492,7 @@
             }
         }
         &--surveyorInfo{
-            margin: 2rem 0 1rem 1rem;
+            margin: 2rem 0 1rem 0;
             padding-right: 2rem;
             div{
                 display: flex;
@@ -538,7 +519,7 @@
             }
         }
         &--appInfo{
-            margin: 3rem 0 1rem 1rem;
+            margin: 3rem 0 1rem 0;
             border-top: 1px solid rgba(0,0,0,0.05);
             padding-top: 3rem;
             padding-right: 2rem;

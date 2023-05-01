@@ -114,8 +114,8 @@ function printCards(ARR){
 
         const arrow = document.createElement('span');
         arrow.classList.add('position--button__arrow')
-        let arr = [ARR[i][0], ARR[i][1], ARR[i][2], ARR[i][3], ARR[i][4], ARR[i][5], ARR[i][6]]
-        arrow.onclick = () => detailedView(arr)
+        let arr = [ARR[i][0], ARR[i][2], ARR[i][5], ARR[i][6], ARR[i][1]]
+        arrow.onclick = () => ShowDetailedView(arr)
         const coordsAct = ARR[i][4]
         //console.log('params: ' , coordsAct, actualLoc);
         stationCard.onclick = () => drawLine(coordsAct)
@@ -422,9 +422,48 @@ closeCalibrate.addEventListener('click',() => {
     showPop()
 })
 
-function detailedView(arr){
+const cardDetail = document.querySelector('.cardDetail')
+function ShowDetailedView(arr){
     console.log(arr);
+
+    
+    const cardName = document.querySelector('.cardName');
+    cardName.innerText = arr[0]
+    const cardLocation = document.querySelector('.cardLocation');
+    cardLocation.innerHTML = arr[2]
+    
+    const cardDetailStatus = document.querySelector('.cardDetailStatus');
+    const cardDetailedTimeDescriptor = document.querySelector('.time')
+    if(cardDetailedTimeDescriptor.textContent !== ""){
+        cardDetailedTimeDescriptor.innerHTML = "";
+    }
+    const spanStatus = document.createElement('span');
+    if(arr[1] != 1){
+        cardDetailStatus.innerHTML = "inactiva"
+        cardDetailStatus.setAttribute("id", 'inact');
+        spanStatus.innerHTML = "*Por lo anterior, no es recomendable posicionar con esta estación"
+    } else {
+        cardDetailStatus.innerHTML = "activa"
+        cardDetailStatus.setAttribute("id", 'act');
+        if(!(arr[4] > 229)){
+            spanStatus.innerHTML = "*Si quieres más seguridad, te recomendamos posicionar por al menos " + arr[3];
+        } else {
+            spanStatus.innerHTML = "*Sin embargo, hay opciones mejores que están más cerca de tu ubicación";
+        }
+    }
+    cardDetailedTimeDescriptor.appendChild(spanStatus)
+
+
+    showPop()
+    cardDetail.classList.toggle('inactive')
 }
+
+const closeCardDetail = document.querySelector('.closeCardDetail')
+closeCardDetail.addEventListener('click', ()=>{
+    cardDetail.classList.toggle('inactive')
+    showPop()
+})
+
 
 const contextGPSdiv = document.querySelector('.burguerMenu--contextGPS');
 getGPScontext()

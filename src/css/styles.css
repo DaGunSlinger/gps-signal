@@ -32,6 +32,19 @@ html {
     }
 }
 */
+/*Colores*/
+/*Fuentes*/
+* {
+  margin: 0;
+  padding: 0;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+}
+
+html {
+  font-size: 62.5%;
+}
+
 .popUp {
   width: 100%;
   height: 100vh;
@@ -54,7 +67,7 @@ html {
   height: 28rem;
   border-radius: 1rem;
   background-color: #ffffff;
-  padding: 2rem;
+  padding: 0rem 2rem;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -92,6 +105,36 @@ html {
 }
 .popUp--warning .position--button p {
   margin: 0 auto;
+}
+.popUp .cardDetail .cardName {
+  font-size: 4rem;
+  font-weight: 700;
+  -ms-flex-item-align: center;
+      -ms-grid-row-align: center;
+      align-self: center;
+  -ms-grid-column-align: center;
+      justify-self: center;
+  color: #7f59ed;
+}
+.popUp .cardDetail .location {
+  margin-bottom: 1rem;
+  font-size: 1.4rem;
+}
+.popUp .cardDetail .status {
+  margin-bottom: 1rem;
+  font-size: 1.4rem;
+}
+.popUp .cardDetail #act {
+  font-weight: 700;
+  color: #1bad16;
+}
+.popUp .cardDetail #inact {
+  font-weight: 700;
+  color: #f3413c;
+}
+.popUp .cardDetail .time {
+  font-size: 1.2rem;
+  color: #b7b8c2;
 }
 
 .appContainer {
@@ -626,32 +669,6 @@ html {
   margin: 2rem 0 0 0;
 }
 
-.cardDetail {
-  width: 100%;
-  height: calc(50% - 2rem);
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-orient: vertical;
-  -webkit-box-direction: normal;
-      -ms-flex-direction: column;
-          flex-direction: column;
-  -webkit-box-pack: start;
-      -ms-flex-pack: start;
-          justify-content: flex-start;
-  overflow: auto;
-  padding: 1.5rem 0 2rem 0;
-  position: fixed;
-  z-index: 500;
-  bottom: -2rem;
-  font-family: "Nunito", sans-serif;
-  background-color: #ecf0fb;
-  border: 0px solid gray;
-  font-size: 1.6rem;
-  cursor: auto;
-  color: #1b1931;
-}
-
 .popUp--warning .alert {
   background-image: url(../assets/warning.png);
 }
@@ -674,10 +691,11 @@ html {
 }
 .lateralMenuContainer .burguerMenu {
   width: 70%;
-  height: 100vh;
+  height: 100%;
   background-color: #ecf0fb;
   z-index: 500;
   font-family: "Oswald", sans-serif;
+  padding-left: 2rem;
 }
 .lateralMenuContainer .burguerMenu span {
   display: inline-block;
@@ -697,8 +715,8 @@ html {
   height: auto;
   -ms-flex-item-align: start;
       align-self: flex-start;
-  margin: 1rem auto 0rem auto;
-  padding: 1rem;
+  margin: 1rem auto 0rem calc(5% - 1rem);
+  padding: 2rem;
   border-radius: 1rem;
   background-color: #7f59ed;
 }
@@ -715,11 +733,11 @@ html {
 }
 .lateralMenuContainer .burguerMenu--contextGPS p {
   font-size: 1.4rem;
-  font-weight: 100;
+  font-weight: 400;
   color: #ecf0fb;
 }
 .lateralMenuContainer .burguerMenu--title {
-  margin: 2rem 0 0 1rem;
+  margin: 2rem 0 0 0;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -755,7 +773,7 @@ html {
   color: #7f59ed;
 }
 .lateralMenuContainer .burguerMenu--surveyorInfo {
-  margin: 2rem 0 1rem 1rem;
+  margin: 2rem 0 1rem 0;
   padding-right: 2rem;
 }
 .lateralMenuContainer .burguerMenu--surveyorInfo div {
@@ -786,7 +804,7 @@ html {
   background-size: 4rem 4rem;
 }
 .lateralMenuContainer .burguerMenu--appInfo {
-  margin: 3rem 0 1rem 1rem;
+  margin: 3rem 0 1rem 0;
   border-top: 1px solid rgba(0, 0, 0, 0.05);
   padding-top: 3rem;
   padding-right: 2rem;

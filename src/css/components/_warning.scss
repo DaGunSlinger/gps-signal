@@ -20,6 +20,8 @@
 }
 */
 
+@import "components/globals";
+
 .popUp{
     width: 100%;
     height: 100vh;
@@ -39,7 +41,7 @@
         
         border-radius: 1rem;
         background-color: $color-alternative;
-        padding: 2rem;
+        padding: 0rem 2rem;
 
         display: flex;
         flex-direction: column;
@@ -72,5 +74,36 @@
                 margin: 0 auto;
             }
         }
-    }   
+    } 
+    .cardDetail{
+        & .cardName{
+            font-size: 4rem;
+            font-weight: 700;
+            align-self: center;
+            justify-self: center;
+            color: $color-primary;
+        }
+
+        & .location{
+            margin-bottom: 1rem;
+            font-size: 1.4rem;
+        }
+        & .status{
+            margin-bottom: 1rem;
+            font-size: 1.4rem;
+        }
+        & #act{
+            font-weight: 700;
+            color: $color-true;
+        }
+    
+        & #inact{
+            font-weight: 700;
+            color: $color-false;
+        }
+        & .time{
+            font-size: 1.2rem;
+            color: $color-gray;
+        }
+    }  
 }
