@@ -841,6 +841,7 @@ html {
 .appInfo {
   width: 100%;
   height: 100vh;
+  padding-bottom: 8rem;
   position: fixed;
   z-index: 1000;
   font-family: "Nunito", sans-serif;
@@ -1228,7 +1229,7 @@ html {
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
-  padding: 2rem;
+  padding: 2rem 2rem 7rem 2rem;
   width: 90%;
   max-width: 60rem;
   font-size: 1.6rem;
@@ -1393,6 +1394,7 @@ html {
 }
 .magnaNet--note {
   background-color: #1b1931;
+  padding-bottom: 6rem;
 }
 .magnaNet--note__div {
   margin: 0 auto;
