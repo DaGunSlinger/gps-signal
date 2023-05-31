@@ -1,4 +1,5 @@
 /*Colores*/
+/*#7f59ed;*/
 /*Fuentes*/
 * {
   margin: 0;
@@ -33,6 +34,7 @@ html {
 }
 */
 /*Colores*/
+/*#7f59ed;*/
 /*Fuentes*/
 * {
   margin: 0;
@@ -601,7 +603,7 @@ html {
   margin-bottom: 1rem;
 }
 .tab .tab--section .degrees--container__input {
-  width: 6rem;
+  width: 5rem;
   height: 4rem;
   font-size: 2rem;
   padding: 0 auto;
@@ -614,7 +616,7 @@ html {
   color: #7f59ed;
 }
 .tab .tab--section .degrees--container .long {
-  width: 8rem;
+  width: 10rem;
 }
 .tab .tab--section .degrees--container h1 {
   margin: 0 1rem 0 0.5rem;
@@ -677,6 +679,9 @@ html {
 }
 .popUp--warning .calibrate {
   background-image: url(../assets/north.png);
+}
+.popUp--warning .outColombia {
+  background-image: url(../assets/colombia.png);
 }
 
 .lateralMenuContainer {
@@ -833,6 +838,778 @@ html {
   background-size: 3rem 3rem;
 }
 
+.appInfo {
+  width: 100%;
+  height: 100vh;
+  position: fixed;
+  z-index: 1000;
+  font-family: "Nunito", sans-serif;
+  background-color: #ecf0fb;
+  overflow: auto;
+}
+.appInfo .toReturn {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  z-index: 501;
+  width: 100%;
+  height: 5rem;
+  padding: 1rem 0;
+  background-color: #7f59ed;
+  font-family: "Nunito", sans-serif;
+  font-size: 1.6rem;
+}
+.appInfo .toReturn__return {
+  width: 5rem;
+  height: 5rem;
+  background-color: #ecf0fb;
+  border-radius: 2rem;
+  -webkit-box-shadow: 0 1px 15px rgba(0, 0, 0, 0.16), 0 1px 15px rgba(0, 0, 0, 0.23);
+          box-shadow: 0 1px 15px rgba(0, 0, 0, 0.16), 0 1px 15px rgba(0, 0, 0, 0.23);
+  z-index: 500;
+  -webkit-transform: rotate(180deg);
+          transform: rotate(180deg);
+  width: 4rem;
+  height: 4rem;
+  cursor: pointer;
+  background-image: url("../assets/flechita.svg");
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: 2.4rem 2.4rem;
+  width: 3rem;
+  height: 3rem;
+  margin-left: 1rem;
+  background-size: 1.5rem 1.5rem;
+  background-color: #7f59ed;
+  -webkit-box-shadow: none;
+          box-shadow: none;
+}
+.appInfo .toReturn h1 {
+  color: #ecf0fb;
+  font-weight: 600;
+  font-size: 1.4rem;
+  margin-left: 0.5rem;
+}
+.appInfo--return {
+  width: 90%;
+  margin: 0 auto;
+  font-size: 1.2rem;
+}
+.appInfo--title {
+  width: 100%;
+  margin: 0 auto;
+  padding: 0rem 1rem 2rem 1rem;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  text-align: center;
+  background-color: #7f59ed;
+}
+.appInfo--title__icon {
+  width: 4rem;
+  height: 4rem;
+  padding: 1rem;
+  background-color: #9bc9ff;
+  border-radius: 2rem;
+  border: none;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: 2.4rem 2.4rem;
+  width: 20rem;
+  height: 16rem;
+  padding-right: 0;
+  background-color: transparent;
+  background-size: cover;
+  background-image: url("../assets/location.png");
+}
+.appInfo--title h1 {
+  font-size: 3rem;
+  color: #ffffff;
+}
+.appInfo--card {
+  width: 100%;
+  height: auto;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  padding: 2rem 1.5rem 2rem 1.5rem;
+  font-size: 1.4rem;
+  background-color: #ecf0fb;
+  color: #1b1931;
+}
+.appInfo--card__icon {
+  width: 4rem;
+  height: 4rem;
+  padding: 1rem;
+  background-color: #9bc9ff;
+  border-radius: 2rem;
+  border: none;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: 2.4rem 2.4rem;
+  width: 100%;
+  max-width: 10rem;
+  height: 10rem;
+  margin-right: 1.5rem;
+  background-size: 6rem 6rem;
+  border-radius: 10rem;
+  background-color: transparent;
+}
+.appInfo--card__content a {
+  color: #7f59ed;
+  font-weight: 600;
+  text-decoration: none;
+}
+.appInfo--card .clock {
+  background-image: url("../assets/clock.png");
+}
+.appInfo--card .helmet {
+  background-image: url("../assets/helmet.png");
+  background-color: #ecf0fb;
+}
+.appInfo--card .coords {
+  background-image: url("../assets/coords.png");
+  background-color: #ecf0fb;
+}
+.appInfo--card .ux {
+  background-image: url("../assets/UX.png");
+  background-color: #ecf0fb;
+}
+.appInfo--card .search {
+  background-image: url("../assets/search.png");
+  background-color: #ecf0fb;
+}
+.appInfo .black {
+  background-color: #1b1931;
+  color: #ffffff;
+}
+
+.calcInfo {
+  width: 100%;
+  height: 100vh;
+  position: fixed;
+  z-index: 1000;
+  font-family: "Nunito", sans-serif;
+  background-color: #ecf0fb;
+  overflow: auto;
+}
+.calcInfo .toReturn {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  z-index: 501;
+  width: 100%;
+  height: 4rem;
+  background-color: #ecf0fb;
+  font-family: "Nunito", sans-serif;
+  font-size: 1.6rem;
+}
+.calcInfo .toReturn__return {
+  width: 5rem;
+  height: 5rem;
+  background-color: #ecf0fb;
+  border-radius: 2rem;
+  -webkit-box-shadow: 0 1px 15px rgba(0, 0, 0, 0.16), 0 1px 15px rgba(0, 0, 0, 0.23);
+          box-shadow: 0 1px 15px rgba(0, 0, 0, 0.16), 0 1px 15px rgba(0, 0, 0, 0.23);
+  z-index: 500;
+  -webkit-transform: rotate(180deg);
+          transform: rotate(180deg);
+  width: 4rem;
+  height: 4rem;
+  cursor: pointer;
+  background-image: url("../assets/flechita.svg");
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: 2.4rem 2.4rem;
+  width: 3rem;
+  height: 3rem;
+  margin-left: 1rem;
+  background-size: 1.5rem 1.5rem;
+  background-color: #ecf0fb;
+  -webkit-box-shadow: none;
+          box-shadow: none;
+}
+.calcInfo .toReturn h1 {
+  color: #7f59ed;
+  background-color: transparent;
+  font-weight: 600;
+  font-size: 1.4rem;
+  margin-left: 0.5rem;
+}
+.calcInfo--banner {
+  width: 100%;
+  max-width: 120rem;
+  height: 10rem;
+  margin: 1rem 0 0.5rem 0;
+  padding: 2rem;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+.calcInfo--banner h1 {
+  display: inline-block;
+  margin-left: 1rem;
+  font-size: 2.4rem;
+  color: #7f59ed;
+  font-weight: bolder;
+}
+.calcInfo--banner img {
+  width: 10rem;
+  height: 10rem;
+}
+.calcInfo--explanation {
+  width: 90%;
+  max-width: 60rem;
+  margin: 0 auto;
+  padding: 2rem;
+}
+.calcInfo--explanation h1 {
+  display: inline-block;
+  font-size: 1.8rem;
+  color: #1b1931;
+  margin-bottom: 1rem;
+}
+.calcInfo--explanation p {
+  font-size: 1.6rem;
+  margin-bottom: 1rem;
+  color: #1b1931;
+}
+.calcInfo--explanation__list {
+  margin-left: 1rem;
+}
+.calcInfo--explanation__list .formula {
+  margin-bottom: 2rem;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  list-style: none;
+}
+.calcInfo--explanation__list .formula span {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  width: 100%;
+  max-width: 40rem;
+  height: 4rem;
+  border-radius: 1rem;
+  font-size: 1.6rem;
+  font-family: "Times New Roman", Times, serif;
+  font-style: italic;
+  background-color: #7f59ed;
+  color: #ecf0fb;
+}
+.calcInfo--circle {
+  background-color: #b7b8c2;
+}
+.calcInfo--circle__explanation {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  margin: 0 auto;
+  padding: 3rem 1rem;
+  width: 90%;
+  max-width: 60rem;
+  font-size: 1.6rem;
+  font-style: italic;
+}
+.calcInfo--circle__explanation p {
+  display: inline-block;
+  margin-bottom: 1rem;
+}
+.calcInfo--circle__explanation span {
+  text-align: right;
+  font-size: 1.2rem;
+}
+.calcInfo--circleSolution__explanation {
+  width: 90%;
+  max-width: 60rem;
+  margin: 2rem auto;
+  padding: 0 1rem;
+  font-size: 1.6rem;
+  color: #1b1931;
+  text-align: justify;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column; /*quit*/
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+.calcInfo--circleSolution__explanation p span {
+  color: #7f59ed;
+  font-weight: 600;
+}
+.calcInfo--circleSolution__explanation .verify {
+  display: block;
+  margin-bottom: 2rem; /*quit*/
+  /* margin-right: 5rem; put*/
+}
+.calcInfo--circleSolution__explanation img {
+  width: 25rem;
+  height: auto;
+  border-radius: 1rem;
+  -webkit-box-shadow: 0 1px 2px rgba(0, 0, 0, 0.16), 0 1px 3px rgba(0, 0, 0, 0.23);
+          box-shadow: 0 1px 2px rgba(0, 0, 0, 0.16), 0 1px 3px rgba(0, 0, 0, 0.23);
+}
+.calcInfo--circleSolution__explanation .cita {
+  display: inline-block;
+  margin-top: 1rem;
+  width: 60%;
+  font-size: 1.2rem;
+  color: #957ce0;
+  text-align: center;
+}
+.calcInfo--alert {
+  background-color: #7f59ed;
+}
+.calcInfo--alert__note {
+  margin: 0 auto;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  padding: 2rem;
+  width: 90%;
+  max-width: 60rem;
+  font-size: 1.6rem;
+  color: #ecf0fb;
+  border-radius: 1rem;
+}
+
+.magnaNet {
+  width: 100%;
+  height: 100vh;
+  position: fixed;
+  z-index: 1000;
+  font-family: "Nunito", sans-serif;
+  background-color: #ecf0fb;
+  overflow: auto;
+}
+.magnaNet .toReturn {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  z-index: 501;
+  width: 100%;
+  height: 4rem;
+  background-color: #ecf0fb;
+  font-family: "Nunito", sans-serif;
+  font-size: 1.6rem;
+}
+.magnaNet .toReturn__return {
+  width: 5rem;
+  height: 5rem;
+  background-color: #ecf0fb;
+  border-radius: 2rem;
+  -webkit-box-shadow: 0 1px 15px rgba(0, 0, 0, 0.16), 0 1px 15px rgba(0, 0, 0, 0.23);
+          box-shadow: 0 1px 15px rgba(0, 0, 0, 0.16), 0 1px 15px rgba(0, 0, 0, 0.23);
+  z-index: 500;
+  -webkit-transform: rotate(180deg);
+          transform: rotate(180deg);
+  width: 4rem;
+  height: 4rem;
+  cursor: pointer;
+  background-image: url("../assets/flechita.svg");
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: 2.4rem 2.4rem;
+  width: 3rem;
+  height: 3rem;
+  margin-left: 1rem;
+  background-size: 1.5rem 1.5rem;
+  background-color: #ecf0fb;
+  -webkit-box-shadow: none;
+          box-shadow: none;
+}
+.magnaNet .toReturn h1 {
+  color: #7f59ed;
+  background-color: transparent;
+  font-weight: 600;
+  font-size: 1.4rem;
+  margin-left: 0.5rem;
+}
+.magnaNet--banner {
+  width: 100%;
+  max-width: 120rem;
+  height: 10rem;
+  margin: 1rem 0 0.5rem 0;
+  padding: 2rem;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+.magnaNet--banner h1 {
+  display: inline-block;
+  margin-left: 1rem;
+  font-size: 2.6rem;
+  color: #7f59ed;
+  font-weight: bolder;
+}
+.magnaNet--banner img {
+  width: 10rem;
+  height: 10rem;
+  margin: 0 1rem 0 2rem;
+}
+.magnaNet--explanation {
+  width: 90%;
+  max-width: 80rem;
+  margin: 0 auto;
+  padding: 2rem;
+}
+.magnaNet--explanation h1 {
+  display: inline-block;
+  font-size: 1.8rem;
+  color: #1b1931;
+  margin-bottom: 1rem;
+}
+.magnaNet--explanation p {
+  font-size: 1.6rem;
+  margin-bottom: 1rem;
+  color: #1b1931;
+}
+.magnaNet--explanation p span {
+  color: #7f59ed;
+  font-weight: 600;
+}
+.magnaNet--explanation table {
+  width: 100%;
+  margin-top: 2rem;
+  border-radius: 1rem;
+  table-layout: fixed;
+  border-collapse: collapse;
+  text-align: center;
+  -webkit-box-shadow: 0 1px 2px rgba(0, 0, 0, 0.16), 0 1px 3px rgba(0, 0, 0, 0.23);
+          box-shadow: 0 1px 2px rgba(0, 0, 0, 0.16), 0 1px 3px rgba(0, 0, 0, 0.23);
+}
+.magnaNet--explanation table th {
+  background-color: #7f59ed;
+  color: #ecf0fb;
+  height: 3rem;
+}
+.magnaNet--explanation table tr {
+  height: 5rem;
+  border-radius: 1rem;
+}
+.magnaNet--explanation table tr .topLeft {
+  border-radius: 1rem 0 0 0;
+}
+.magnaNet--explanation table tr .topRight {
+  border-radius: 0 1rem 0 0;
+}
+.magnaNet--explanation table tr .bottLeft {
+  border-radius: 1rem;
+}
+.magnaNet--explanation table tr .bottRight {
+  border-radius: 1rem;
+}
+.magnaNet--explanation table .bottRow {
+  border-radius: 5rem;
+}
+.magnaNet--explanation table tr:nth-child(even) {
+  background-color: rgba(0, 0, 0, 0.2);
+}
+.magnaNet--explanation table td {
+  border: 1px solid #b7b8c2;
+}
+.magnaNet--explanation table .desc {
+  width: 10rem;
+}
+.magnaNet--explanation table .act {
+  color: #1bad16;
+  font-weight: 700;
+}
+.magnaNet--explanation table .inac {
+  color: #f3413c;
+  font-weight: 700;
+}
+.magnaNet--note {
+  background-color: #1b1931;
+}
+.magnaNet--note__div {
+  margin: 0 auto;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  padding: 2rem;
+  width: 90%;
+  max-width: 60rem;
+  font-size: 1.6rem;
+  color: #ecf0fb;
+  border-radius: 1rem;
+  text-align: justify;
+}
+.magnaNet--note__div p {
+  margin-bottom: 1rem;
+}
+
+.profesional {
+  width: 100%;
+  height: 100vh;
+  position: fixed;
+  z-index: 1000;
+  font-family: "Nunito", sans-serif;
+  background-color: #1b1931;
+  color: #ecf0fb;
+  overflow: auto;
+  font-family: "Nunito", sans-serif;
+}
+.profesional .toReturn {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  z-index: 501;
+  width: 100%;
+  height: 4rem;
+  margin-top: 1rem;
+  background-color: #1b1931;
+  font-family: "Nunito", sans-serif;
+  font-size: 1.6rem;
+}
+.profesional .toReturn__return {
+  width: 5rem;
+  height: 5rem;
+  background-color: #ecf0fb;
+  border-radius: 2rem;
+  -webkit-box-shadow: 0 1px 15px rgba(0, 0, 0, 0.16), 0 1px 15px rgba(0, 0, 0, 0.23);
+          box-shadow: 0 1px 15px rgba(0, 0, 0, 0.16), 0 1px 15px rgba(0, 0, 0, 0.23);
+  z-index: 500;
+  -webkit-transform: rotate(180deg);
+          transform: rotate(180deg);
+  width: 4rem;
+  height: 4rem;
+  cursor: pointer;
+  background-image: url("../assets/flechita.svg");
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: 2.4rem 2.4rem;
+  width: 3rem;
+  height: 3rem;
+  margin-left: 1rem;
+  background-size: 1.5rem 1.5rem;
+  background-color: transparent;
+  -webkit-box-shadow: none;
+          box-shadow: none;
+}
+.profesional .toReturn h1 {
+  color: #ecf0fb;
+  background-color: transparent;
+  font-weight: 600;
+  font-size: 1.4rem;
+  margin-left: 0.5rem;
+}
+.profesional .profesional--explanation {
+  width: 90%;
+  max-width: 80rem;
+  margin: 0 auto;
+  padding: 2rem;
+  color: #ecf0fb;
+}
+.profesional .profesional--explanation h1 {
+  display: inline-block;
+  font-size: 1.8rem;
+  margin-bottom: 1rem;
+}
+.profesional .profesional--explanation p {
+  font-size: 1.6rem;
+  margin-bottom: 1rem;
+}
+.profesional .profesional--explanation p span {
+  color: #7f59ed;
+  font-weight: 600;
+}
+.profesional .acordeon {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  width: 90%;
+  margin: 0 auto;
+}
+.profesional .acordeon .bloque {
+  width: 90%;
+  background: rgb(11, 7, 52);
+  background: linear-gradient(72deg, rgb(11, 7, 52) 3%, rgb(127, 89, 237) 100%);
+  margin: 0 0 1rem 0;
+  padding: 1rem;
+  max-width: 50rem;
+  border-radius: 1rem;
+  -webkit-box-shadow: 0 1px 2px rgba(0, 0, 0, 0.16), 0 1px 3px rgba(0, 0, 0, 0.23);
+          box-shadow: 0 1px 2px rgba(0, 0, 0, 0.16), 0 1px 3px rgba(0, 0, 0, 0.23);
+}
+.profesional .acordeon .bloque--name {
+  max-width: 30rem;
+  padding: 1rem;
+  height: 8rem;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  margin: 0 auto;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+.profesional .acordeon .bloque--name h1 {
+  font-size: 1.8rem;
+  margin-bottom: 0.5rem;
+}
+.profesional .acordeon .bloque--name img {
+  width: 6rem;
+  height: 6rem;
+  border-radius: 50%;
+  margin: 0 1rem 0 0;
+}
+.profesional .acordeon .bloque--name p {
+  font-style: italic;
+}
+.profesional .acordeon .bloque--info {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  background-color: #957ce0;
+  border-radius: 0 0 1rem 1rem;
+  padding: 0rem;
+  height: 0;
+  overflow: hidden;
+  -webkit-transition: all 0.3s ease;
+  transition: all 0.3s ease;
+}
+.profesional .acordeon .bloque--info__text {
+  width: 80%;
+  padding: 1rem;
+}
+.profesional .acordeon .bloque--info__text p {
+  -ms-flex-item-align: start;
+      align-self: flex-start;
+}
+.profesional .acordeon .bloque--info__img {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  width: 20%;
+}
+.profesional .acordeon .bloque--info__img img {
+  width: 3rem;
+  height: 3rem;
+  -ms-flex-item-align: end;
+      align-self: flex-end;
+}
+.profesional .acordeon .bloque--info.active {
+  position: relative;
+  width: 90%;
+  max-width: 50rem;
+  height: auto;
+  padding: 1rem 0 1rem 2rem;
+  top: -20px;
+}
+.profesional .magnaNet--note {
+  margin-top: 5rem;
+  width: 100%;
+  background-color: #ffffff;
+}
+.profesional .magnaNet--note__div {
+  color: #1b1931;
+}
+
 .inactive {
   display: none;
 }
@@ -855,6 +1632,35 @@ html {
   }
   .tab .degreesSection {
     margin-top: 5rem;
+  }
+  .tab .tab--section .degrees--container .long {
+    width: 12rem;
+  }
+  .tab .tab--section .degrees--container__input {
+    width: 6rem;
+    height: 4rem;
+  }
+  .appInfo {
+    position: fixed;
+    width: 50%;
+  }
+  .appInfo--title {
+    height: 24rem;
+  }
+  .appInfo--card {
+    height: 18rem;
+  }
+  .calcInfo {
+    width: 50%;
+  }
+  .calcInfo .toReturn {
+    margin-top: 2rem;
+  }
+  table {
+    font-size: 1.4rem;
+  }
+  .profesional {
+    width: 50%;
   }
 }
 @media (min-width: 961px) {
@@ -935,5 +1741,31 @@ html {
   }
   .lateralMenuContainer .burguerMenu--contextGPS {
     max-width: 60rem;
+  }
+  .appInfo {
+    position: fixed;
+    width: 35%;
+  }
+  .appInfo--title {
+    height: 24rem;
+  }
+  .appInfo--title__icon {
+    width: 18rem;
+    height: 18rem;
+  }
+  .appInfo--card {
+    height: 14rem;
+  }
+  .calcInfo {
+    position: fixed;
+    width: 35%;
+  }
+  .magnaNet {
+    position: fixed;
+    width: 35%;
+  }
+  .profesional {
+    position: fixed;
+    width: 35%;
   }
 }

@@ -143,6 +143,14 @@
                         <p>Entendido</p>
                     </button>
                 </div>
+                <div class="popUp--warning outColombia inactive">
+                    <span class="popUp--warning__icon outColombia"></span>
+                    <h1 class="popUp--warning__title">Fuera de cobertura</h1>
+                    <p class="popUp--warning__description">Asegurate de que tu ubicación se halla dentro de límites Colombianos</p>
+                    <button class="position--button closeOutColombia">
+                        <p>Entendido</p>
+                    </button>
+                </div>
                 <div class="popUp--warning cardDetail inactive">
                     <!-- <span class="popUp--warning__icon cardName"></span> -->
                     <h1 class="popUp--warning__title cardName"></h1>
@@ -164,7 +172,7 @@
                     
                 </div>
                 <div class="burguerMenu--surveyorInfo">
-                    <div class="burguerMenu--surveyotInfo__whatIs">
+                    <div class="burguerMenu--surveyotInfo__appInfo">
                         <span class="questionIcon"></span>
                         <p>¿Qué es GPS Signal?</p>
                     </div>
@@ -178,14 +186,261 @@
                     </div>
                 </div>
                 <div class="burguerMenu--appInfo">
-                    <div class="burguerMenu--appInfo__creator">
-                        <span class="focoIcon"></span>
-                        <p>El creador de esta app</p>
-                    </div>
                     <div class="burguerMenu--appInfo__profesionals">
                         <span class="likeIcon"></span>
-                        <p>Profesionales que aprueban</p>
+                        <p>Profesionales involucrados</p>
                     </div>
+                </div>
+            </div>
+        </section>
+        <section class="appInfo inactive">
+            <div class="toReturn">
+                <div class="toReturn__return toReturn__button"></div>
+                <h1 class="navigation__title returnTab">Regresar</h1>
+            </div>
+            <div class="appInfo--title">
+                <span class="appInfo--title__icon"></span>
+                <h1>Esto es GPS Signal</h1>
+            </div>
+            <div class="appInfo--card">
+                <span class="appInfo--card__icon clock"></span>
+                <div class="appInfo--card__content">
+                    <h1>Tu tiempo de levantamiento</h1>
+                    <p>GPS Signal está diseñada para facilitar el cálculo del tiempo de rastreo necesario para realizar levantamientos topográficos utilizando antenas GNSS.</p>
+                </div>
+            </div>
+            <div class="appInfo--card black">
+                <span class="appInfo--card__icon helmet"></span>
+                <div class="appInfo--card__content">
+                    <h1>Por y para topográfos</h1>
+                    <p>Esta herramienta es especialmente útil para los profesionales que trabajan en el campo de la topografía y necesitan obtener mediciones precisas y confiables.</p>
+                </div>
+            </div>
+            <div class="appInfo--card">
+                <span class="appInfo--card__icon coords"></span>
+                <div class="appInfo--card__content">
+                    <h1>En todo lugar</h1>
+                    <p>Es posible introducir coordenadas especificas de una localización o utilizar tu ubicación en tiempo real para hacer el cálculo anclado a la red magna eco.</p>
+                </div>
+            </div>
+            <div class="appInfo--card black">
+                <span class="appInfo--card__icon ux"></span>
+                <div class="appInfo--card__content">
+                    <h1>Simple y hermosa</h1>
+                    <p>La interfaz intuitiva y fácil de usar hace que la aplicación sea accesible para usuarios de diferentes niveles de experiencia en topografía, en todo dispositivo y lugar.</p>
+                </div>
+            </div>
+            <div class="appInfo--card">
+                <span class="appInfo--card__icon search"></span>
+                <div class="appInfo--card__content">
+                    <h1>Completamente Gratis</h1>
+                    <p>El cálculo del parámetro es conocimiento público determinado por la <a href="https://beta.igac.gov.co/sites/default/files/transparencia/normograma/resolucion_643_de_2018.pdf" target="_blank" rel="noopener">resolución 643 del 2018</a> del IGAC, y no puedes vender el conocimiento que nos pertenece a todos.</p>
+                </div>
+            </div>
+        </section>
+
+        <section class="calcInfo inactive">
+            <div class="toReturn">
+                <div class="toReturn__return calcReturn__button"></div>
+                <h1 class="navigation__title returnTab">Regresar</h1>
+            </div>
+            <div class="calcInfo--banner">
+                <img src="./src/assets/calculadora.png" alt="asa">
+                <h1>Sobre el calculo del tiempo de rastreo</h1>
+            </div>
+            <article class="calcInfo--explanation">
+                <h1>Resolucion 643 de 2018</h1>
+                <p>El anexo 2: especificaciones técnicas para levantamiento topográfico, en el numeral 8.1:  puntos topográficos base a partir de equipos GNSS se recomienda tomar referencia de puntos geodésicos y considerar el tiempo de rastreo según la distancia, de la siguiente manera:</p>
+                <ul class="calcInfo--explanation__list">
+                    <li>
+                        <p>Para distancias menores a ochenta (80) kilómetros, con equipos de doble frecuencia L1/L2 se debe aplicar la siguiente ecuación:</p>
+                    </li>
+                    <li class="formula">
+                        <span>t = 65 min +(3 min x (d - 10))</span>
+                    </li>
+                    <li>
+                        <p>Para posicionamientos que se efectúen con equipos de frecuencia sencilla L1, se debe duplicar el tiempo de rastreo resultantes de las anteriores fórmulas, así:</p>
+                    </li>
+                    <li class="formula">
+                        <span>t = 2 [65 min +(3 min x (d - 10))]</span>
+                    </li>
+                </ul>            
+            </article>
+
+            <div class="calcInfo--circle">
+                <div class="calcInfo--circle__explanation">
+                    <p>"Deben evitarse los rastreos con distancias mayores a ochenta (80) Km entre el punto
+                        geodésico y el punto topográfico base. En caso de presentarse necesariamente esta condición,
+                        pueden trasladarse coordenadas o ampliar el tiempo de rastreo, hasta cumplir con la
+                        especificación."
+                    </p>
+                    <span>Párrafo extraído de la resolución 643 del 2018</span>
+                </div>
+            </div>
+            <div class="calcInfo--circleSolution">
+                <div class="calcInfo--circleSolution__explanation">
+                    <p class="verify">Para verificar lo anterior, <span>GPS SIGNAL</span> incorpora un marcador azul el cual indica el radio de 80 km que específica la norma, de modo que puedas tomar decisiones en función de tu ubicación y la de los puntos geodésicos de la red Magna Eco.</p>
+                    <img src="./src/assets/circle80km.png" alt="">
+                    <p class="cita">Radio de acción para la posición actual indicada en la aplicación</p>
+                </div>
+            </div>
+            <div class="calcInfo--alert">
+                <div class="calcInfo--alert__note">
+                    <h1>¡Nota!</h1>
+                    <p>Los tiempos de rastreo mencionados en las
+                        anteriores formulas, aplican para condiciones ideales tales
+                        como horizonte despejado, máscara de elevación y DOP
+                        adecuadas.
+                    </p>
+                </div>
+            </div>
+
+        </section>
+        <section class="magnaNet inactive">
+            <div class="toReturn">
+                <div class="toReturn__return magnaReturn__button"></div>
+                <h1 class="navigation__title returnMagna">Regresar</h1>
+            </div>
+            <div class="magnaNet--banner">
+                <img src="./src/assets/netdata.png" alt="asa">
+                <h1>Sobre la red Magna Eco</h1>
+            </div>
+            <article class="magnaNet--explanation">
+                <h1>Red de Estaciones GNSS de Operación Continua</h1>
+                <p>Trata un conjunto de estaciones  de rastreo continuo sincronizadas con el sistema global de navegación por satélite (GNSS) que se encuentran ubicadas en territorio nacional y sirven como base de referencia para los levantamientos diferenciales ya que reciben información satelital en tiempo real.</p>
+                <p>La Red está conformada por más de 80 estaciones administradas entre el Instituto Geográfico  Agustín Codazzi y SIRGAS, y son utilizadas por <span> GPS SIGNAL</span> para generar los calculos que ves con cada ejecución.</p>
+                <p>Las estaciones presentes en la aplicación se detallan a continuación:</p>
+                <table class="magnaNet--explanation_table">
+                    <tr>
+                        <th class="topLeft">Nombre</th>
+                        <th>Latitud</th>
+                        <th>Longitud</th>
+                        <th>Estado</th>
+                        <th class="topRight">Ubicación</th>
+                    </tr>
+                </table>
+            </article>
+            <div class="magnaNet--note">
+                <div class="magnaNet--note__div">
+                    <h1>Recuerda que...</h1>
+                    <p>Puede que no todas las estaciones de la red Magna Eco esten incluidas aún en la aplicación ya que pueden ser muy recientes o, por el contrario, estén siendo desmanteladas.
+                    </p>
+                    <p>Además, las estaciones de la red pasiva del IGAC se añadiran proximamente en la aplicación</p>
+                </div>
+            </div>
+        </section>
+        <section class="profesional inactive">
+            <div class="toReturn">
+                <div class="toReturn__return profesionalReturn__button"></div>
+                <h1 class="navigation__title returnProfesional">Regresar</h1>
+            </div>
+            <div class="magnaNet--banner">
+                <img src="./src/assets/profesionals.png" alt="asa">
+                <h1>Quienes lo hicieron posible</h1>
+            </div>
+            <article class="profesional--explanation">
+                <h1>Para aquellos a quienes admiro....</h1>
+                <p>Las personas las cuales verás aquí son aquellos expertos que brindaron su conocimiento para generar una aplicación funcional y de carácter profesional sin dejar de lado la estética y la comodidad. Todos los ingenieros en la presente rindieron las pruebas heurísticas para evaluar la usabilidad de la interfaz y la experiencia de usuario, de manera que<span> si das click </span>en cada uno de ellos verás una descripción detallada de su aporte así como su perfil si quisieras contactarlos</p>
+                <p><span>Agradezco mucho</span> el tiempo invertido, las muchas pruebas que les insistí repetir y sus comentarios sobre el desempeño de la aplicación en su propia mano, es por ellos que hoy en día tenemos todo este conocimiento al servicio de cualquier persona.</p>
+                <p>Es por esto y más que me permito darles creditos en un apartado propio para ellos:</p>
+            </article>
+            <div class="acordeon">
+                <div class="bloque">
+                    <div class="bloque--name">
+                        <img src="./src/assets/profesionals/KLCO.jpeg" alt="">
+                        <div class="bloque--name__info">
+                            <h1>Karen Cáceres Ortíz</h1>
+                            <p>Supervisora de digitalización</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="bloque--info">
+                    <div class="bloque--info__text"><p>Afinó detalles en usabilidad como la manera de volver a los menús y resarcir errores, complementó las bases para los marcadores del mapa e información sobre las pantallas</p></div>
+                    <div class="bloque--info__img"><a href="https://www.linkedin.com/in/karencaceresortiz/" target="_blank" rel="noopener"><img src="./src/assets/linkedin.png" alt=""></a></div>
+                </div>
+                <div class="bloque">
+                    <div class="bloque--name">
+                        <img src="./src/assets/profesionals/JSA.jpeg" alt="">
+                        <div class="bloque--name__info">
+                            <h1>Sebastián Araoz</h1>
+                            <p>Ingeniero topográfico en ANT</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="bloque--info">
+                    <div class="bloque--info__text"><p>Propuso la manera de desplazarse entre opciones de posicionamiento mediante una dinámica de señalización entre vectores</p></div>
+                    <div class="bloque--info__img"><a href="https://www.linkedin.com/in/juan-sebastian-araoz-sanchez-6615a5137/" target="_blank" rel="noopener"><img src="./src/assets/linkedin.png" alt=""></a></div>
+                </div>
+                <div class="bloque">
+                    <div class="bloque--name">
+                        <img src="./src/assets/profesionals/AFZR.jpeg" alt="">
+                        <div class="bloque--name__info">
+                            <h1>Andres Zamudio Ramírez</h1>
+                            <p>Auxiliar de área técnica de ingeniería</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="bloque--info">
+                    <div class="bloque--info__text"><p>Sin duda uno de los más importantes, colaboró con la idea general de la aplicación y su uso en campo, desde la base hasta su uso más avanzado</p></div>
+                    <div class="bloque--info__img"><a href="https://www.linkedin.com/in/andres-felipe-zamudio-ram%C3%ADrez-8b96b195/" target="_blank" rel="noopener"><img src="./src/assets/linkedin.png" alt=""></a></div>
+                </div>
+                <div class="bloque">
+                    <div class="bloque--name">
+                        <img src="./src/assets/profesionals/JAHN.jpeg" alt="">
+                        <div class="bloque--name__info">
+                            <h1>Andrés Hernández Navarrete</h1>
+                            <p>Ingeniero topográfico</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="bloque--info">
+                    <div class="bloque--info__text"><p>Identificó inconvenientes con parámetros extraños ingresados "por accidente" por cualquier usuario, además hizo mella en la estética del zoom aplicado en el mapa y lo bien que quedaba</p></div>
+                    <div class="bloque--info__img"><a href="https://www.linkedin.com/in/andres-hernandez-652358135/" target="_blank" rel="noopener"><img src="./src/assets/linkedin.png" alt=""></a></div>
+                </div>
+                <div class="bloque">
+                    <div class="bloque--name">
+                        <img src="./src/assets/profesionals/CEP.jpeg" alt="">
+                        <div class="bloque--name__info">
+                            <h1>Camilo Ernesto Palma</h1>
+                            <p>Coordinador del proyecto LiDAR</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="bloque--info">
+                    <div class="bloque--info__text"><p>Aportó ideas en nuevas pantallas para los usuarios los cuales necesitaran información detallada como un factor de seguridad, aportando la formula empírica del detalle del posicionamiento</p></div>
+                    <div class="bloque--info__img"><a href="https://www.linkedin.com/in/camilo-palma-9796b3113/" target="_blank" rel="noopener"><img src="./src/assets/linkedin.png" alt=""></a></div>
+                </div>
+                <div class="bloque">
+                    <div class="bloque--name">
+                        <img src="./src/assets/profesionals/PASM.jpeg" alt="">
+                        <div class="bloque--name__info">
+                            <h1>Alejandra Sierra Méndez</h1>
+                            <p>Ingeniera de digitalización y presupuestos</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="bloque--info">
+                    <div class="bloque--info__text"><p>Pronosticó inconvenientes con el rango y delimitación de datos ingresados así como leves detalles a la interfaz y la experiencia de usuario</p></div>
+                    <div class="bloque--info__img"><a href="https://www.linkedin.com/in/paolaalejandrasierram%C3%A9ndez/" target="_blank" rel="noopener"><img src="./src/assets/linkedin.png" alt=""></a></div>
+                </div>
+                <div class="bloque">
+                    <div class="bloque--name">
+                        <img src="./src/assets/profesionals/SRHR.png" alt="">
+                        <div class="bloque--name__info">
+                            <h1>Sebastián Hernández</h1>
+                            <p>Ingeniero topográfico y creador de GPS Signal</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="bloque--info">
+                    <div class="bloque--info__text"><p>Utilizando tecnologías como Javascript, CSS - Saas y ViteJS aporta hoy una solución para un problema de campo, aplicando el conocimiento de todos los topográfos de Colombia</p></div>
+                    <div class="bloque--info__img"><a href="https://www.linkedin.com/in/hernandeztopo/" target="_blank" rel="noopener"><img src="./src/assets/linkedin.png" alt=""></a></div>
+                </div>
+            </div>
+            <div class="magnaNet--note">
+                <div class="magnaNet--note__div">
+                    <h1>Tambien para cada visitante</h1>
+                    <p>GPS Signal agradece tu visita.</p>
                 </div>
             </div>
         </section>

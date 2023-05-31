@@ -328,8 +328,15 @@ function calcSinceDecimals(){
         showWarning()
         return;
     }
+    
     if(actualLoc[1] > 0){
         actualLoc[1] *= -1;
+    }
+    
+    if(actualLoc[0] > 16 || actualLoc[0] < -4.25 || actualLoc[1] < -81.881 || actualLoc[1] > -66.83){
+        showPop()
+        showOutColombia()
+        return;
     }
 
     toggleToMenu()
@@ -354,8 +361,10 @@ function calcSinceDegrees(){
         actualLoc[1] *= -1;
     }
 
-    if(actualLoc[1] > 0){
-        actualLoc[1] *= -1;
+    if(actualLoc[0] > 16 || actualLoc[0] < -4.25 || actualLoc[1] < -81.881 || actualLoc[1] > -66.83){
+        showPop()
+        showOutColombia()
+        return;
     }
 
     toggleToMenu()
@@ -404,6 +413,11 @@ function showCalibrate(){
     calibrate.classList.toggle('inactive')
 }
 
+const colombia = document.querySelector('.outColombia')
+function showOutColombia(){
+    colombia.classList.toggle('inactive')
+}
+
 const closeWarning = document.querySelector('.closeWarning')
 closeWarning.addEventListener('click',() => {
     showWarning()
@@ -419,6 +433,12 @@ closeBlock.addEventListener('click',() => {
 const closeCalibrate = document.querySelector('.closeCalibrate')
 closeCalibrate.addEventListener('click',() => {
     showCalibrate()
+    showPop()
+})
+
+const closeOutColombia = document.querySelector('.closeOutColombia')
+closeOutColombia.addEventListener('click',() => {
+    showOutColombia()
     showPop()
 })
 
@@ -536,6 +556,104 @@ function getGPScontext(){
     contextGPSdiv.appendChild(JDdiv);
     contextGPSdiv.appendChild(GPSweekNdiv);
 }
+
+const table = document.querySelector('.magnaNet--explanation_table')
+function fillTable(){
+    let i = 0;
+    lista.forEach(cosa => {
+        i += 1;
+        const container = document.createElement('tr');
+        const name = document.createElement('td');
+        const lat = document.createElement('td');
+        const long = document.createElement('td');
+        const act = document.createElement('td');
+        const desc = document.createElement('td');
+        name.innerText = cosa[0];
+        lat.innerText = cosa[1].toFixed(4);
+        long.innerText = cosa[2].toFixed(4);
+        if(cosa[3] == 1){
+            act.innerText = "Activa";
+            act.classList.add('act');
+        } else{
+            act.innerText = "Inactiva";
+            act.classList.add('inac');
+        } 
+        desc.innerText = cosa[4];
+        desc.classList.add('desc');
+
+        if(i==81){
+            name.classList.add('bottLeft')
+            desc.classList.add('bottRight')
+            container.classList.add('bottRow')
+        }
+
+        container.append(name)
+        container.append(lat)
+        container.append(long)
+        container.append(act)
+        container.append(desc)
+        table.appendChild(container)
+
+    })
+}
+
+fillTable()
+
+const bloque = document.querySelectorAll('.bloque--info')
+const bloqueName = document.querySelectorAll('.bloque')
+
+bloqueName.forEach((el, i)=>{
+    bloqueName[i].addEventListener('click', ()=>{
+        if((bloque[i].classList.contains('active'))){
+            bloque[i].classList.remove('active');
+        } else {
+            bloque.forEach((bloq, i)=>{
+                bloque[i].classList.remove('active');
+            })
+            bloque[i].classList.add('active')
+        }
+    })
+})
+
+
+
+const appInfo = document.querySelector('.appInfo')
+
+const infoReturn = document.querySelector('.toReturn__button')
+infoReturn.addEventListener('click', openCloseInfo)
+function openCloseInfo(){
+    appInfo.classList.toggle('inactive')
+}
+const burguerMenuAppInfo = document.querySelector('.burguerMenu--surveyotInfo__appInfo')
+burguerMenuAppInfo.addEventListener('click', openCloseInfo)
+
+
+const calcInfo = document.querySelector('.calcInfo')
+const calcReturn = document.querySelector('.calcReturn__button')
+calcReturn.addEventListener('click', openCloseCalcInfo)
+function openCloseCalcInfo(){
+    calcInfo.classList.toggle('inactive')
+}
+const burguerMenucalcInfo = document.querySelector('.burguerMenu--surveyotInfo__calcs')
+burguerMenucalcInfo.addEventListener('click', openCloseCalcInfo)
+
+const magnaNet = document.querySelector('.magnaNet')
+const magnaReturn = document.querySelector('.magnaReturn__button')
+magnaReturn.addEventListener('click', openCloseMagnaInfo)
+function openCloseMagnaInfo(){
+    magnaNet.classList.toggle('inactive')
+}
+const burguerMenuNetInfo = document.querySelector('.burguerMenu--surveyotInfo__red')
+burguerMenuNetInfo.addEventListener('click', openCloseMagnaInfo)
+
+const profesional = document.querySelector('.profesional')
+const profesionalReturn = document.querySelector('.profesionalReturn__button')
+profesionalReturn.addEventListener('click', openCloseProfesionalInfo)
+function openCloseProfesionalInfo(){
+    profesional.classList.toggle('inactive')
+}
+const burguerMenuProf = document.querySelector('.burguerMenu--appInfo__profesionals')
+burguerMenuProf.addEventListener('click', openCloseProfesionalInfo)
 
 
 /*const selectBtn = document.querySelector('.selectPoint')

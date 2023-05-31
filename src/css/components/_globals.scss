@@ -1,5 +1,6 @@
 /*Colores*/
-$color-primary: #7f59ed;
+$color-primary: #7f59ed;  /*#7f59ed;*/
+$color-primary-light: #957ce0;
 $color-light: #ecf0fb;
 $color-gray: #b7b8c2;
 $color-light-gray: rgba(0,0,0,0.2);
@@ -75,4 +76,20 @@ html{
     background-position: center;
     background-repeat: no-repeat;
     background-size: 2.4rem 2.4rem;
+}
+@mixin miniCard{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    width: 100%;
+    max-width: 40rem;
+    height: 4rem;
+    
+    border-radius: 1rem;
+    font-size: 1.6rem;
+    font-family: 'Times New Roman', Times, serif;
+    font-style: italic;
+    background-color: $color-primary;
+    color: $color-light;
 }
