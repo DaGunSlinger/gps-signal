@@ -321,8 +321,9 @@ const inputDecimalLong = document.querySelector('.decimalLong');
 const calcInDecimalsBtn = document.querySelector('.calcInDecimals');
 calcInDecimalsBtn.addEventListener('click', calcSinceDecimals);
 function calcSinceDecimals(){
-    actualLoc[0] = parseFloat(inputDecimalLat.value);
-    actualLoc[1] = parseFloat(inputDecimalLong.value);
+    actualLoc[0] = parseFloat(((inputDecimalLat.value).toString()).replace(/,/g, '.'));
+    actualLoc[1] = parseFloat(((inputDecimalLong.value).toString()).replace(/,/g, '.'));
+    console.log(actualLoc[0], actualLoc[1]);
     if(isNaN(actualLoc[0]) || isNaN(actualLoc[1]) ){
         showPop()
         showWarning()
@@ -347,9 +348,9 @@ const calcInDegreessBtn = document.querySelector('.calcInDegrees');
 calcInDegreessBtn.addEventListener('click', calcSinceDegrees);
 function calcSinceDegrees(){
     const selectorNS = parseFloat(document.querySelector('.degrees--container__selector').value)
-    actualLoc[0] = (parseInt(degreesLatGrades.value) + parseInt(degreesLatMinutes.value)/60 + parseFloat(degreesLatSeconds.value)/360) * selectorNS;
-    actualLoc[1] = parseInt(degreesLongGrades.value) + parseInt(degreesLongMinutes.value)/60 + parseFloat(degreesLongSeconds.value)/360;
-
+    actualLoc[0] = (parseInt(degreesLatGrades.value) + parseInt(degreesLatMinutes.value)/60 + parseFloat(((degreesLatSeconds.value).toString()).replace(/,/g, '.'))/360) * selectorNS;
+    actualLoc[1] = parseInt(degreesLongGrades.value) + parseInt(degreesLongMinutes.value)/60 + parseFloat(((degreesLongSeconds.value).toString()).replace(/,/g, '.'))/360;
+    console.log(actualLoc[0], actualLoc[1]);
     
     if(isNaN(actualLoc[0]) || isNaN(actualLoc[1]) ){
         showPop()
